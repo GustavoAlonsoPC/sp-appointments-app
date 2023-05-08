@@ -67,7 +67,8 @@
               "browserTarget": "sp-appointments-app:build:production"
             },
             "development": {
-              "browserTarget": "sp-appointments-app:build:development"
+              "browserTarget": "sp-appointments-app:build:development",
+              "proxyConfig": "proxy.config.json"
             }
           },
           "defaultConfiguration": "development"

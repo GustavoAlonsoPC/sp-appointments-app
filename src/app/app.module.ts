@@ -9,6 +9,11 @@ import { HomeComponent } from './screens/home/home.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
+import { CrudAffiliatesComponent } from './screens/crud-affiliates/crud-affiliates.component';
+import { CrudTestsComponent } from './screens/crud-tests/crud-tests.component';
+import { CrudAppointmentsComponent } from './screens/crud-appointments/crud-appointments.component';
+import { ListingComponent } from './shared/layouts/listing/listing.component';
+import { CrudComponent } from './shared/layouts/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { AppointmentsComponent } from './screens/appointments/appointments.compo
     HomeComponent,
     TestsComponent,
     AffiliatesComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    CrudAffiliatesComponent,
+    CrudTestsComponent,
+    CrudAppointmentsComponent,
+    ListingComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,

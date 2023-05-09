@@ -17,7 +17,7 @@ export class ListingComponent {
     listingItems: []
   } 
 
-  getAttributeValues<T extends {}>(obj: T): any[] {
+  getAttributeValues<T extends {}>(obj: T): T[] {
     return Object.values(obj)
   }
 }

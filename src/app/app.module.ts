@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { CrudTestsComponent } from './screens/crud-tests/crud-tests.component';
 import { CrudAppointmentsComponent } from './screens/crud-appointments/crud-appointments.component';
 import { ListingComponent } from './shared/layouts/listing/listing.component';
 import { CrudComponent } from './shared/layouts/crud/crud.component';
+import { ViewHeaderComponent } from './shared/components/view-header/view-header.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { CrudComponent } from './shared/layouts/crud/crud.component';
     CrudTestsComponent,
     CrudAppointmentsComponent,
     ListingComponent,
-    CrudComponent
+    CrudComponent,
+    ViewHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { HttpClientModule } from "@angular/common/http";
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {MatCardModule} from '@angular/material/card';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,9 +45,18 @@ import { ViewHeaderComponent } from './shared/components/view-header/view-header
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatMenuModule,
+    FlexLayoutModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

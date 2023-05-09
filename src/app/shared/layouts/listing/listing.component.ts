@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Test } from '../../models/test.model';
+import { Affiliate } from '../../models/affiliate.model';
+import { Appointment } from '../../models/appointment.model';
+import { Item } from '../../models/item.model';
 
 @Component({
   selector: 'app-listing',
@@ -7,4 +11,13 @@ import { Component } from '@angular/core';
 })
 export class ListingComponent {
 
+  @Input() itemsAttr:string[] = [];
+
+  @Input() items: Item<Test | Affiliate | Appointment> = {
+    listingItems: []
+  } 
+
+  getAttributeValues<T extends {}>(obj: T): any[] {
+    return Object.values(obj)
+  }
 }

@@ -1,9 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Appointment } from '../models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentsService {
 
-  constructor() { }
+  private testUrl = "/api/controller/appointments";
+  constructor(private http: HttpClient) { }
+
+  getAllAppointments() {
+    return this.http.get<Appointment[]>(this.testUrl);
+  }
 }

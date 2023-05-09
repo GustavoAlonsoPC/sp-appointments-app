@@ -1,14 +1,24 @@
-<div class="p-2">
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-               <th *ngFor="let field of itemsAttr">{{ field }}</th> 
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of items.listingItems">
-                <td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-card>
+                <mat-card-content>
+                    <div class="p-2 table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                   <th *ngFor="let field of itemsAttr">{{ field }}</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of items.listingItems">
+                                    <td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 </div>

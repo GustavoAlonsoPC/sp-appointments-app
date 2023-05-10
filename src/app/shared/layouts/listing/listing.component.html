@@ -4,7 +4,7 @@
             <mat-card>
                 <mat-card-content>
                     <div class="p-2 table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover mat-elevation-z8">
                             <thead>
                                 <tr>
                                    <th *ngFor="let field of itemsAttr">{{ field }}</th>
@@ -15,12 +15,12 @@
                                 <tr *ngFor="let item of items.listingItems">
                                     <td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
                                     <td class="listing-actions">
-                                        <button mat-icon-button >
+                                        <a mat-icon-button >
                                             <mat-icon>edit</mat-icon>
-                                        </button>
-                                        <button mat-icon-button >
+                                        </a>
+                                        <a mat-icon-button >
                                             <mat-icon>delete</mat-icon>
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             </tbody>

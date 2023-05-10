@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { Affiliate } from 'src/app/shared/models/affiliate.model';
+import { HomeDataSource } from 'src/app/shared/models/home-data-source.model';
 
 @Component({
   selector: 'app-main-list',
@@ -19,17 +19,6 @@ export class MainListComponent {
   displayedColumns = ['id', 'name', 'age', 'mail'];
   columnsToDisplayWithExpand = ['expand', ...this.displayedColumns];
   expandedElement!: HomeDataSource | null;
-}
-
-export interface HomeDataSource extends Affiliate {
-  nestedData: CustomAppointmentsDetails[];
-}
-
-export interface CustomAppointmentsDetails {
-  id: number;
-  dateAppointment: Date;
-  hourAppointment: string;
-  testName: string;
 }
 
 const ELEMENT_DATA: HomeDataSource[] = [

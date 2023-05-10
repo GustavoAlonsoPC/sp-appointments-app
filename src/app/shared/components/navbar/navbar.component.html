@@ -1,19 +1,20 @@
 <mat-toolbar color="primary">
   <a class="navbar-brand" routerLink="home">
-    <h3>Agenda de Citas - Reto Semillero</h3>
+    Agenda de Citas - Reto Semillero
   </a>
   <span class="example-spacer"></span>
-  <span class="nav-item" style="margin-right: 10px;">
-    <a class="nav-link active" aria-current="page" routerLink="home"> <i class="bi bi-house-heart"></i> Home</a>
-  </span>
-  <span>Consultar:</span>
-  <button mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon>visibility</mat-icon>
-  </button>
-  <mat-menu class="dropdown-menu" #menu="matMenu">
-    <li><a class="dropdown-item" routerLink="affiliates"> <i class="bi bi-person-heart"></i> Afiliados</a></li>
-      <li><a class="dropdown-item" routerLink="tests"> <i class="bi bi-clipboard-pulse"></i> Pruebas</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" routerLink="appointments"> <i class="bi bi-calendar-event"></i>  CITAS</a></li>
-  </mat-menu>
+  <div class="rigth-opts">
+    <a mat-fab extended color="primary" routerLink="appointments">
+      <mat-icon>event</mat-icon>
+      Citas
+    </a>
+    <a mat-fab extended color="primary" routerLink="tests">
+      <mat-icon>medical_services</mat-icon>
+      Pruebas
+    </a>
+    <a mat-fab extended color="primary" routerLink="affiliates">
+      <mat-icon>person</mat-icon>
+      Afiliados
+    </a>
+  </div>
 </mat-toolbar>

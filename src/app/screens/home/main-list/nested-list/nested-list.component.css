@@ -2,3 +2,7 @@ table {
   width: 100%;
   margin-bottom: 20px;
 }
+
+.header-table {
+  background-color: #d9d9d9;
+}

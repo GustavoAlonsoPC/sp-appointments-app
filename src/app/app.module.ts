@@ -5,11 +5,13 @@ import { HttpClientModule } from "@angular/common/http";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from "@angular/material/core";
 import { MatTableModule } from '@angular/material/table';
-
+import {MatSelectModule} from '@angular/material/select';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
@@ -63,7 +65,10 @@ import { NestedListComponent } from './screens/home/main-list/nested-list/nested
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
@@ -27,6 +29,7 @@ import { CrudAppointmentsComponent } from './screens/crud-appointments/crud-appo
 import { ListingComponent } from './shared/layouts/listing/listing.component';
 import { CrudComponent } from './shared/layouts/crud/crud.component';
 import { ViewHeaderComponent } from './shared/components/view-header/view-header.component';
+import { MainListComponent } from './screens/home/main-list/main-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { ViewHeaderComponent } from './shared/components/view-header/view-header
     CrudAppointmentsComponent,
     ListingComponent,
     CrudComponent,
-    ViewHeaderComponent
+    ViewHeaderComponent,
+    MainListComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,8 @@ import { ViewHeaderComponent } from './shared/components/view-header/view-header
     MatMenuModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

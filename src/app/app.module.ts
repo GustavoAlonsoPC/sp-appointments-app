@@ -30,6 +30,7 @@ import { ListingComponent } from './shared/layouts/listing/listing.component';
 import { CrudComponent } from './shared/layouts/crud/crud.component';
 import { ViewHeaderComponent } from './shared/components/view-header/view-header.component';
 import { MainListComponent } from './screens/home/main-list/main-list.component';
+import { NestedListComponent } from './screens/home/main-list/nested-list/nested-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MainListComponent } from './screens/home/main-list/main-list.component'
     ListingComponent,
     CrudComponent,
     ViewHeaderComponent,
-    MainListComponent
+    MainListComponent,
+    NestedListComponent
   ],
   imports: [
     BrowserModule,

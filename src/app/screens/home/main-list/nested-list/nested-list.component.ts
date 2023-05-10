@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CustomAppointmentsDetails } from 'src/app/shared/models/custom-appointments-detals.model';
 
 @Component({
   selector: 'app-nested-list',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class NestedListComponent {
 
+  @Input() nestedData: CustomAppointmentsDetails[] = [];
 }

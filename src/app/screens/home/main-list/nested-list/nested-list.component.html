@@ -1,1 +1,22 @@
-<p>nested-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="p-2 table-responsive">
+        <table class="table mat-elevation-z8">
+          <tr>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Prueba</th>
+          </tr>
+          <tr *ngFor="let appointment of nestedData">
+            <td>{{appointment.id}}</td>
+            <td>{{appointment.dateAppointment | date: 'dd/MM/yyyy'}}</td>
+            <td>{{appointment.hourAppointment}}</td>
+            <td>{{appointment.testName}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

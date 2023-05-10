@@ -1,33 +1,33 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <mat-card>
-                <mat-card-content>
-                    <div class="p-2 table-responsive">
-                        <table class="table table-hover mat-elevation-z8">
-                            <thead>
-                                <tr>
-                                   <th *ngFor="let field of itemsAttr">{{ field }}</th>
-                                   <th>Acciones</th> 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let item of items.listingItems">
-                                    <td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
-                                    <td class="listing-actions">
-                                        <a mat-icon-button >
-                                            <mat-icon>edit</mat-icon>
-                                        </a>
-                                        <a mat-icon-button >
-                                            <mat-icon>delete</mat-icon>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-12">
+			<mat-card>
+				<mat-card-content>
+					<div class="p-2 table-responsive">
+						<table class="table table-hover mat-elevation-z8">
+							<thead>
+								<tr>
+									<th *ngFor="let field of itemsAttr">{{ field }}</th>
+									<th>Acciones</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of items.listingItems">
+									<td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
+									<td class="listing-actions">
+										<a mat-icon-button>
+											<mat-icon>edit</mat-icon>
+										</a>
+										<a mat-icon-button>
+											<mat-icon>delete</mat-icon>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
 </div>

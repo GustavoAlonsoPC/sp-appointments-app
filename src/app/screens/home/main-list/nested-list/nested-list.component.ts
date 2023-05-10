@@ -9,4 +9,5 @@ import { CustomAppointmentsDetails } from 'src/app/shared/models/custom-appointm
 export class NestedListComponent {
 
   @Input() nestedData: CustomAppointmentsDetails[] = [];
+  displayedColumns = ['id', 'dateAppointment', 'hourAppointment', 'testName'];
 }

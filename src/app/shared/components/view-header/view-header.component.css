@@ -1,0 +1,13 @@
+div {
+  padding: 1rem;
+}
+
+h2 {
+  margin: 0;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border: 2px solid blue;
+}

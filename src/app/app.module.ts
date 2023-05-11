@@ -15,7 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -74,6 +74,7 @@ import { AffiliatesFormComponent } from './screens/crud-affiliates/affiliates-fo
     MatNativeDateModule,
     MatInputModule,
     MatSelectModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [],

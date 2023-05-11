@@ -33,6 +33,7 @@ import { CrudComponent } from './shared/layouts/crud/crud.component';
 import { ViewHeaderComponent } from './shared/components/view-header/view-header.component';
 import { MainListComponent } from './screens/home/main-list/main-list.component';
 import { NestedListComponent } from './screens/home/main-list/nested-list/nested-list.component';
+import { NewItemComponent } from './shared/components/new-item/new-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NestedListComponent } from './screens/home/main-list/nested-list/nested
     CrudComponent,
     ViewHeaderComponent,
     MainListComponent,
-    NestedListComponent
+    NestedListComponent,
+    NewItemComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,9 @@ import { HomeComponent } from './screens/home/home.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
+import { CrudAppointmentsComponent } from './screens/crud-appointments/crud-appointments.component';
+import { CrudAffiliatesComponent } from './screens/crud-affiliates/crud-affiliates.component';
+import { CrudTestsComponent } from './screens/crud-tests/crud-tests.component';
 
 const routes: Routes = [
   {
@@ -17,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'appointments',
-    component: AppointmentsComponent
+    component: AppointmentsComponent,
   },
   {
     path: 'tests',
@@ -26,6 +29,18 @@ const routes: Routes = [
   {
     path: 'affiliates',
     component: AffiliatesComponent
+  },
+  {
+    path: 'appointments/new',
+    component: CrudAppointmentsComponent
+  },
+  {
+    path: 'affiliates/new',
+    component: CrudAffiliatesComponent
+  },
+  {
+    path: 'tests/new',
+    component: CrudTestsComponent
   }
 ];
 

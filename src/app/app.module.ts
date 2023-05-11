@@ -34,6 +34,7 @@ import { ViewHeaderComponent } from './shared/components/view-header/view-header
 import { MainListComponent } from './screens/home/main-list/main-list.component';
 import { NestedListComponent } from './screens/home/main-list/nested-list/nested-list.component';
 import { NewItemComponent } from './shared/components/new-item/new-item.component';
+import { FiltersComponent } from './screens/home/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { NewItemComponent } from './shared/components/new-item/new-item.componen
     ViewHeaderComponent,
     MainListComponent,
     NestedListComponent,
-    NewItemComponent
+    NewItemComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

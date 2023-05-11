@@ -15,6 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -72,7 +73,8 @@ import { FiltersComponent } from './screens/home/filters/filters.component';
     MatTableModule,
     MatNativeDateModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

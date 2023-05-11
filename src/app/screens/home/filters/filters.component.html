@@ -1,14 +1,32 @@
-<mat-form-field appearance="fill">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Select</mat-label>
-  <mat-select>
-    <mat-option value="one">First option</mat-option>
-    <mat-option value="two">Second option</mat-option>
-  </mat-select>
-</mat-form-field>
+<form [formGroup]="filterForm">
+  <div class="container">
+    <div class="row">
+      <div class="filter col-4">
+        <mat-form-field appearance="fill">
+          <mat-label>Escoja una fecha</mat-label>
+          <input matInput [matDatepicker]="picker" 
+            formControlName="date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+
+      <div class="filter col-4">
+        <mat-form-field appearance="fill">
+          <mat-label>Id Afiliado</mat-label>
+          <mat-select formControlName="idAff">
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -35,6 +35,7 @@ import { MainListComponent } from './screens/home/main-list/main-list.component'
 import { NestedListComponent } from './screens/home/main-list/nested-list/nested-list.component';
 import { NewItemComponent } from './shared/components/new-item/new-item.component';
 import { FiltersComponent } from './screens/home/filters/filters.component';
+import { FieldsFormComponent } from './screens/crud-affiliates/fields-form/fields-form.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FiltersComponent } from './screens/home/filters/filters.component';
     MainListComponent,
     NestedListComponent,
     NewItemComponent,
-    FiltersComponent
+    FiltersComponent,
+    FieldsFormComponent
   ],
   imports: [
     BrowserModule,

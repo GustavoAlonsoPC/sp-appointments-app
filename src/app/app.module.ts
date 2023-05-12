@@ -38,6 +38,12 @@ import { FiltersComponent } from './screens/home/filters/filters.component';
 import { AffiliatesFormComponent } from './shared/layouts/crud/crud-affiliates/affiliates-form/affiliates-form.component';
 import { TestsFormComponent } from './shared/layouts/crud/crud-tests/tests-form/tests-form.component';
 import { AppointmentsFormComponent } from './shared/layouts/crud/crud-appointments/appointments-form/appointments-form.component';
+import { AffiliatesNewComponent } from './screens/affiliates-new/affiliates-new.component';
+import { AffiliatesEditComponent } from './screens/affiliates-edit/affiliates-edit.component';
+import { AppointmentsNewComponent } from './screens/appointments-new/appointments-new.component';
+import { AppointmentsEditComponent } from './screens/appointments-edit/appointments-edit.component';
+import { TestsNewComponent } from './screens/tests-new/tests-new.component';
+import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,13 @@ import { AppointmentsFormComponent } from './shared/layouts/crud/crud-appointmen
     FiltersComponent,
     AffiliatesFormComponent,
     TestsFormComponent,
-    AppointmentsFormComponent
+    AppointmentsFormComponent,
+    AffiliatesNewComponent,
+    AffiliatesEditComponent,
+    AppointmentsNewComponent,
+    AppointmentsEditComponent,
+    TestsNewComponent,
+    TestsEditComponent
   ],
   imports: [
     BrowserModule,

@@ -4,9 +4,9 @@ import { HomeComponent } from './screens/home/home.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
-import { CrudAppointmentsComponent } from './shared/layouts/crud/crud-appointments/crud-appointments.component';
-import { CrudAffiliatesComponent } from './shared/layouts/crud/crud-affiliates/crud-affiliates.component';
-import { CrudTestsComponent } from './shared/layouts/crud/crud-tests/crud-tests.component';
+import { AffiliatesNewComponent } from './screens/affiliates-new/affiliates-new.component';
+import { AppointmentsNewComponent } from './screens/appointments-new/appointments-new.component';
+import { TestsNewComponent } from './screens/tests-new/tests-new.component';
 
 const routes: Routes = [
   {
@@ -32,15 +32,15 @@ const routes: Routes = [
   },
   {
     path: 'appointments/new',
-    component: CrudAppointmentsComponent
+    component: AppointmentsNewComponent
   },
   {
     path: 'affiliates/new',
-    component: CrudAffiliatesComponent
+    component: AffiliatesNewComponent
   },
   {
     path: 'tests/new',
-    component: CrudTestsComponent
+    component: TestsNewComponent
   }
 ];
 

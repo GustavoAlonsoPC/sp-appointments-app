@@ -7,6 +7,9 @@ import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { AffiliatesNewComponent } from './screens/affiliates-new/affiliates-new.component';
 import { AppointmentsNewComponent } from './screens/appointments-new/appointments-new.component';
 import { TestsNewComponent } from './screens/tests-new/tests-new.component';
+import { AppointmentsEditComponent } from './screens/appointments-edit/appointments-edit.component';
+import { AffiliatesEditComponent } from './screens/affiliates-edit/affiliates-edit.component';
+import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
 
 const routes: Routes = [
   {
@@ -41,7 +44,19 @@ const routes: Routes = [
   {
     path: 'tests/new',
     component: TestsNewComponent
-  }
+  },
+  {
+    path: 'appointments/update',
+    component: AppointmentsEditComponent
+  },
+  {
+    path: 'affiliates/update',
+    component: AffiliatesEditComponent
+  },
+  {
+    path: 'tests/update',
+    component: TestsEditComponent
+  },
 ];
 
 @NgModule({

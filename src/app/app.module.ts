@@ -26,18 +26,15 @@ import { HomeComponent } from './screens/home/home.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
-import { CrudAffiliatesComponent } from './shared/layouts/crud/crud-affiliates/crud-affiliates.component';
-import { CrudTestsComponent } from './shared/layouts/crud/crud-tests/crud-tests.component';
-import { CrudAppointmentsComponent } from './shared/layouts/crud/crud-appointments/crud-appointments.component';
 import { ListingComponent } from './shared/layouts/listing/listing.component';
 import { ViewHeaderComponent } from './shared/components/view-header/view-header.component';
 import { MainListComponent } from './screens/home/main-list/main-list.component';
 import { NestedListComponent } from './screens/home/main-list/nested-list/nested-list.component';
 import { NewItemComponent } from './shared/components/new-item/new-item.component';
 import { FiltersComponent } from './screens/home/filters/filters.component';
-import { AffiliatesFormComponent } from './shared/layouts/crud/crud-affiliates/affiliates-form/affiliates-form.component';
-import { TestsFormComponent } from './shared/layouts/crud/crud-tests/tests-form/tests-form.component';
-import { AppointmentsFormComponent } from './shared/layouts/crud/crud-appointments/appointments-form/appointments-form.component';
+import { AffiliatesFormComponent } from './shared/layouts/crud/affiliates-form/affiliates-form.component';
+import { TestsFormComponent } from './shared/layouts/crud/tests-form/tests-form.component';
+import { AppointmentsFormComponent } from './shared/layouts/crud/appointments-form/appointments-form.component';
 import { AffiliatesNewComponent } from './screens/affiliates-new/affiliates-new.component';
 import { AffiliatesEditComponent } from './screens/affiliates-edit/affiliates-edit.component';
 import { AppointmentsNewComponent } from './screens/appointments-new/appointments-new.component';
@@ -53,9 +50,6 @@ import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
     TestsComponent,
     AffiliatesComponent,
     AppointmentsComponent,
-    CrudAffiliatesComponent,
-    CrudTestsComponent,
-    CrudAppointmentsComponent,
     ListingComponent,
     ViewHeaderComponent,
     MainListComponent,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-crud-affiliates',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./crud-affiliates.component.css']
 })
 export class CrudAffiliatesComponent {
+  
+  @Input() newOrEdit = '';
 
+  titleCrud = `Afiliados - ${this.newOrEdit} Afiliado`;
 }

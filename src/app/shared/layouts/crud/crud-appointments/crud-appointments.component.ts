@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-crud-appointments',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./crud-appointments.component.css']
 })
 export class CrudAppointmentsComponent {
+  
+  @Input() newOrEdit = '';
 
+  titleCrud = `Citas - ${this.newOrEdit} Cita`;
 }

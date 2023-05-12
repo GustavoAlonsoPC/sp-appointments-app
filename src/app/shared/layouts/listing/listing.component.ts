@@ -15,7 +15,9 @@ export class ListingComponent {
 
   @Input() items: Item<Test | Affiliate | Appointment> = {
     listingItems: []
-  } 
+  }
+
+  @Input() pathLink: string = '';
 
   getAttributeValues<T extends {}>(obj: T): T[] {
     return Object.values(obj)

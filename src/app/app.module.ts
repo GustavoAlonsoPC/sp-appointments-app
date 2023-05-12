@@ -36,6 +36,8 @@ import { NestedListComponent } from './screens/home/main-list/nested-list/nested
 import { NewItemComponent } from './shared/components/new-item/new-item.component';
 import { FiltersComponent } from './screens/home/filters/filters.component';
 import { AffiliatesFormComponent } from './screens/crud-affiliates/affiliates-form/affiliates-form.component';
+import { TestsFormComponent } from './screens/crud-tests/tests-form/tests-form.component';
+import { AppointmentsFormComponent } from './screens/crud-appointments/appointments-form/appointments-form.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { AffiliatesFormComponent } from './screens/crud-affiliates/affiliates-fo
     NestedListComponent,
     NewItemComponent,
     FiltersComponent,
-    AffiliatesFormComponent
+    AffiliatesFormComponent,
+    TestsFormComponent,
+    AppointmentsFormComponent
   ],
   imports: [
     BrowserModule,

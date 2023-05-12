@@ -1,0 +1,13 @@
+.form-field {
+  margin-right: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: right;
+}
+
+.actions button {
+  margin-left: 1rem;
+  padding: 1rem;
+}

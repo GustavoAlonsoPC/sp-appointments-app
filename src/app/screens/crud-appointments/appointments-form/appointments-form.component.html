@@ -1,1 +1,39 @@
-<p>fields-form works!</p>
+<div class="container">
+  <form class="example-form">
+
+    <mat-form-field class="form-field">
+      <mat-label>Nombre de la Prueba</mat-label>
+      <input matInput type="text">
+      <mat-hint>Ingresa prueba</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label>Descripción de la prueba</mat-label>
+      <input matInput type="text">
+      <mat-hint>Ingresa la Descripción</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Id Afiliado</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+      <mat-hint>Seleciona un Id</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Id Prueba</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+      <mat-hint>Seleciona un Id</mat-hint>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary">Guardar</button>
+      <button mat-raised-button color="warn">Cancelar</button>
+    </div>
+  </form>
+</div>

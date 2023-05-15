@@ -16,7 +16,7 @@ export class AffiliatesComponent {
   constructor(private service: AffiliatesService) {}
 
   ngOnInit(): void {
-    this.service.getAllAffiliates().subscribe(data => {
+    this.service.getAll().subscribe(data => {
       this.allAffiliates = data;
     });
   }

@@ -15,7 +15,7 @@ export class TestsComponent implements OnInit {
   constructor(private service: TestsService) {}
 
   ngOnInit(): void {
-    this.service.getAllTests().subscribe(data => {
+    this.service.getAll().subscribe(data => {
       this.allTests = data;
     });
   }

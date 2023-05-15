@@ -16,7 +16,7 @@ export class AppointmentsComponent {
   constructor(private service: AppointmentsService) {}
 
   ngOnInit(): void {
-    this.service.getAllAppointments().subscribe(data => {
+    this.service.getAll().subscribe(data => {
       this.allAffiliates = data;
     });
   }

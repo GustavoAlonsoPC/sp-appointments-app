@@ -10,7 +10,8 @@ export class AppointmentsService {
   private testUrl = "/api/controller/appointments";
   constructor(private http: HttpClient) { }
 
-  getAllAppointments() {
+  getAll() {
     return this.http.get<Appointment[]>(this.testUrl);
   }
+
 }

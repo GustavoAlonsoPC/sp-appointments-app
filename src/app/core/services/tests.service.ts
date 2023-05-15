@@ -10,7 +10,7 @@ export class TestsService {
   private testUrl = "/api/controller/tests";
   constructor(private http: HttpClient) { }
 
-  getAllTests() {
+  getAll() {
     return this.http.get<Test[]>(this.testUrl);
   }
 }

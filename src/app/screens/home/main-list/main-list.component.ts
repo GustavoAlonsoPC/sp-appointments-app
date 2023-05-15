@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { HomeDataSource } from 'src/app/shared/models/home-data-source.model';
-import { HomeService } from 'src/app/core/services/home.service';
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
 import { AppointmentsService } from 'src/app/core/services/appointments.service';
 import { TestsService } from 'src/app/core/services/tests.service';
@@ -33,7 +32,7 @@ export class MainListComponent implements OnInit {
     mail: 'Correo electrónico'
   }
 
-  tempTestName = '';
+  testsNames: {[key: number]: string} = { }
 
   constructor(
     private affiliates: AffiliatesService,
@@ -52,46 +51,35 @@ export class MainListComponent implements OnInit {
           this.dataSource = this.tableSource
         });
       })
-      console.log('DATA SOURCE before', this.dataSource)
-      console.log('TABLE SOURCE',this.tableSource)
-      console.log('DATA SOURCE after', this.dataSource)
      }
   ngOnInit(): void {
-    
+    this.tests.getAll().subscribe(all => {
+      all.forEach(t => this.testsNames[t.id] = t.name)
+    })
   }
 
   onAffClick(idAffiliate: number) {
   
     this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
-      if (!data) {
-        console.log('No appointments');
-        return
-      }
+      if (!data) return
     
       this.tableSource.filter(aff => aff.id === idAffiliate)
         .forEach(aff => {
           if (aff.nestedData.length > 0) return;
           this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
             data.forEach(a => {
+              console.log(this.testsNames)
               aff.nestedData.push({
                 id: a.id,
                 dateAppointment: a.dateAppointment,
                 hourAppointment: a.hourAppointment,
-                testName: this.getTestName(a.idTest)
+                testName: this.testsNames[a.idTest]
               });
             })
           })
         })
     });
     console.log(this.tableSource);
-  }
-
-  getTestName(idTest: number) {
-    let nameT = ''
-    this.tests.getById(idTest).subscribe(t => {
-      nameT = t.name
-    });
-    return nameT;
   }
 }
 /* 

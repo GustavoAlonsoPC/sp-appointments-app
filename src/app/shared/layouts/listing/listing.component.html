@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<mat-card>
+			<mat-card *ngIf="items.listingItems.length > 0">
 				<mat-card-content>
 					<div class="p-2 table-responsive">
 						<table class="table table-hover mat-elevation-z8">
@@ -28,6 +28,11 @@
 					</div>
 				</mat-card-content>
 			</mat-card>
+			<app-no-content-card 
+				[labelLeftAction]="'Ir al Home'"
+				[labelRightAction]="'Crear registro'"
+				[pathLeftAction]="'/home'"
+				[pathRightAction]="'new'"></app-no-content-card>
 		</div>
 	</div>
 </div>

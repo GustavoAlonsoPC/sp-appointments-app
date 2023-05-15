@@ -28,7 +28,7 @@
 									<div class="container"
 										[@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
 										<app-nested-list *ngIf="element.nestedData.length > 0" [nestedData]="element.nestedData"></app-nested-list>
-										<app-no-content-card *ngIf="element.nestedData.length === 0" [labelRightAction]="'Agregar cita'" [pathRightAction]="'appointments/new'"></app-no-content-card>
+										<app-no-content-card *ngIf="element.nestedData.length === 0" [labelRightAction]="'Agregar cita'" [pathRightAction]="'/appointments/new'"></app-no-content-card>
 									</div>
 								</td>
 							</ng-container>
@@ -46,8 +46,8 @@
 				</mat-card-content>
 			</mat-card>
 			<app-no-content-card 
-				[pathLeftAction]="'affiliates'"
-				[pathRightAction]="'appointments'"
+				[pathLeftAction]="'/affiliates'"
+				[pathRightAction]="'/appointments'"
 				[labelLeftAction]="'Ir a afiliados'"
 				[labelRightAction]="'Ir a citas'"
 				*ngIf="!dataSource"></app-no-content-card>

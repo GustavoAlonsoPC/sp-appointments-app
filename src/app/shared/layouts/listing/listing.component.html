@@ -28,7 +28,7 @@
 					</div>
 				</mat-card-content>
 			</mat-card>
-			<app-no-content-card 
+			<app-no-content-card *ngIf="items.listingItems.length === 0"
 				[labelLeftAction]="'Ir al Home'"
 				[labelRightAction]="'Crear registro'"
 				[pathLeftAction]="'/home'"

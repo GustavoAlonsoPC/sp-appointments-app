@@ -13,4 +13,8 @@ export class TestsService {
   getAll() {
     return this.http.get<Test[]>(this.testUrl);
   }
+
+  getById(idTest: number) {
+    return this.http.get<Test>(`${this.testUrl}/${idTest}`);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Appointment } from 'src/app/shared/models/appointment.model';
 import { Item } from 'src/app/shared/models/item.model';
-import { AppointmentsService } from 'src/app/shared/services/appointments.service';
+import { AppointmentsService } from 'src/app/core/services/appointments.service';
 
 @Component({
   selector: 'app-appointments',

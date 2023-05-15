@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/shared/models/item.model';
 import { Test } from 'src/app/shared/models/test.model';
-import { TestsService } from 'src/app/shared/services/tests.service';
+import { TestsService } from 'src/app/core/services/tests.service';
 
 @Component({
   selector: 'app-tests',

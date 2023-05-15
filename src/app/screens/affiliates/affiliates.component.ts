@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Affiliate } from 'src/app/shared/models/affiliate.model';
 import { Item } from 'src/app/shared/models/item.model';
-import { AffiliatesService } from 'src/app/shared/services/affiliates.service';
+import { AffiliatesService } from 'src/app/core/services/affiliates.service';
 
 @Component({
   selector: 'app-affiliates',

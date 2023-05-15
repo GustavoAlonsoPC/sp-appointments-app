@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Affiliate } from '../models/affiliate.model';
+import { Affiliate } from '../../shared/models/affiliate.model';
 
 @Injectable({
   providedIn: 'root'

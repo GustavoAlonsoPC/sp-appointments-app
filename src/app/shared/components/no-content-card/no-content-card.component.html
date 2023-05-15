@@ -7,8 +7,8 @@
           <mat-card-subtitle>¿Qué quieres hacer?</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions align="end">
-          <a mat-button routerLink="{{pathLeftAction}}">{{labelLeftAction}}</a>
-          <a mat-button routerLink="{{pathRightAction}}">{{labelRightAction}}</a>
+          <a *ngIf="labelLeftAction !== ''" mat-button routerLink="{{pathLeftAction}}">{{labelLeftAction}}</a>
+          <a *ngIf="labelRightAction !== ''" mat-button routerLink="{{pathRightAction}}">{{labelRightAction}}</a>
         </mat-card-actions>
       </mat-card>
     </div>

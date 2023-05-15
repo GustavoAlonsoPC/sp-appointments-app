@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-no-content-card',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./no-content-card.component.css']
 })
 export class NoContentCardComponent {
+  @Input() pathLeftAction: string = '';
+  @Input() pathRightAction: string = '';
 
+  @Input() labelLeftAction: string = '';
+  @Input() labelRightAction: string = '';
 }

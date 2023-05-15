@@ -1,1 +1,16 @@
-<p>no-content-card works!</p>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>No hay contenido que mostrar</mat-card-title>
+          <mat-card-subtitle>¿Qué quieres hacer?</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <a mat-button routerLink="/{{pathLeftAction}}">{{labelLeftAction}}</a>
+          <a mat-button routerLink="/{{pathRightAction}}">{{labelRightAction}}</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

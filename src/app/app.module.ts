@@ -41,6 +41,7 @@ import { AppointmentsNewComponent } from './screens/appointments-new/appointment
 import { AppointmentsEditComponent } from './screens/appointments-edit/appointments-edit.component';
 import { TestsNewComponent } from './screens/tests-new/tests-new.component';
 import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
+import { NoContentCardComponent } from './shared/components/no-content-card/no-content-card.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
     AppointmentsNewComponent,
     AppointmentsEditComponent,
     TestsNewComponent,
-    TestsEditComponent
+    TestsEditComponent,
+    NoContentCardComponent
   ],
   imports: [
     BrowserModule,

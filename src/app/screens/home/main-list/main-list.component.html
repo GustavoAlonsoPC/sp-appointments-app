@@ -10,6 +10,7 @@
 								<th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
 								<td mat-cell *matCellDef="let element">
 									<button mat-icon-button aria-label="expand row"
+										(click)="onAffClick(element.id)"
 										(click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
 										<mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
 										<mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
@@ -26,7 +27,7 @@
 								<td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
 									<div class="container"
 										[@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-										<app-nested-list [nestedData]="element.nestedData"></app-nested-list>
+										<app-nested-list *ngIf="element.nestedData.length > 0" [nestedData]="element.nestedData"></app-nested-list>
 									</div>
 								</td>
 							</ng-container>
@@ -34,7 +35,8 @@
 							<tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
 							<tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;" class="example-element-row"
 								[class.example-expanded-row]="expandedElement === element"
-								(click)="expandedElement = expandedElement === element ? null : element">
+								(click)="expandedElement = expandedElement === element ? null : element"
+								(click)="onAffClick(element.id)">
 							</tr>
 							<tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 						</table>

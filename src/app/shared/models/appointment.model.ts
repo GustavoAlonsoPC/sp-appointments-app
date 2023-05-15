@@ -1,6 +1,6 @@
 export interface Appointment {
     id: number;
-    dateAppointment: Date;
+    dateAppointment: string;
     hourAppointment: string;
     idTest: number;
     idAffiliate: number;

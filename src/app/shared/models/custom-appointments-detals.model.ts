@@ -1,6 +1,6 @@
 export interface CustomAppointmentsDetails {
   id: number;
-  dateAppointment: Date;
+  dateAppointment: string;
   hourAppointment: string;
   testName: string;
 }

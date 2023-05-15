@@ -14,4 +14,8 @@ export class AppointmentsService {
     return this.http.get<Appointment[]>(this.testUrl);
   }
 
+  getByAffiliateId(idAffiliate: number) {
+    return this.http.get<Appointment[]>(`${this.testUrl}/aff?idAffiliate=${idAffiliate}`);
+  }
+
 }

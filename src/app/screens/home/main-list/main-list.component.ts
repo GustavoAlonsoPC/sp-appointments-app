@@ -19,6 +19,13 @@ export class MainListComponent {
   displayedColumns = ['id', 'name', 'age', 'mail'];
   columnsToDisplayWithExpand = ['expand', ...this.displayedColumns];
   expandedElement!: HomeDataSource | null;
+
+  columnHeaders: {[key: string]: string} = {
+    id: 'Id',
+    name: 'Nombre de afiliado',
+    age: 'Edad',
+    mail: 'Correo electrónico'
+  }
 }
 
 const ELEMENT_DATA: HomeDataSource[] = [

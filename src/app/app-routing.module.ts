@@ -46,15 +46,15 @@ const routes: Routes = [
     component: TestsNewComponent
   },
   {
-    path: 'appointments/update',
+    path: 'appointments/update/:id',
     component: AppointmentsEditComponent
   },
   {
-    path: 'affiliates/update',
+    path: 'affiliates/update/:id',
     component: AffiliatesEditComponent
   },
   {
-    path: 'tests/update',
+    path: 'tests/update/:id',
     component: TestsEditComponent
   },
 ];

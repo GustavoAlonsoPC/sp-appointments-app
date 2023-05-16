@@ -17,4 +17,12 @@ export class TestsService {
   getById(idTest: number) {
     return this.http.get<Test>(`${this.testUrl}/${idTest}`);
   }
+
+  save(newTest: {name: string, description: string}) {
+    return this.http.post(this.testUrl, newTest);
+  }
+
+  update() {
+
+  }
 }

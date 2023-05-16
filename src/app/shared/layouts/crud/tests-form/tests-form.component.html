@@ -1,5 +1,10 @@
 <div class="container">
-  <form class="example-form" [formGroup]="testForm">
+  <form class="example-form" [formGroup]="testForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="form-field" *ngIf="register.id !== 0">
+      <mat-label>Id de la prueba</mat-label>
+      <input disabled matInput [value]="register.id" type="text">
+    </mat-form-field>
 
     <mat-form-field class="form-field">
       <mat-label>Nombre de la Prueba</mat-label>
@@ -18,8 +23,8 @@
     </mat-form-field>
 
     <div class="actions">
-      <a mat-raised-button color="primary">Guardar</a>
-      <a mat-raised-button color="warn">Cancelar</a>
+      <button type="submit" [disabled]="testForm.invalid" mat-raised-button color="primary">Guardar</button>
+      <a mat-raised-button color="warn" routerLink="/tests">Cancelar</a>
     </div>
   </form>
 </div>

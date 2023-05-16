@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TestsService } from 'src/app/core/services/tests.service';
+import { Test } from 'src/app/shared/models/test.model';
 
 @Component({
   selector: 'app-tests-form',
@@ -8,19 +10,30 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class TestsFormComponent implements OnInit {
 
-  name = '';
-  description = '';
+  @Input() register: Test = {
+    id: 0,
+    name: '',
+    description: ''
+  }
+
   testForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: TestsService
+    ) {}
   ngOnInit(): void {
     this.testForm = this.initForm();
   }
 
   initForm(): FormGroup {
     return this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required, Validators.maxLength(100)]
+      name: new FormControl(this.register.name, [Validators.required]),
+      description: new FormControl(this.register.description, [Validators.required, Validators.maxLength(100)])
     })
+  }
+
+  onSubmit() {
+    if (this.register.id === 0) console.log(this.service.save(this.testForm.value))
   }
 }

@@ -5,27 +5,34 @@
 
 
 <div class="container">
-  <form class="example-form">
+  <form class="example-form" [formGroup]="affiliateForm">
 
     <mat-form-field class="form-field">
       <mat-label>Nombre de Afiliado</mat-label>
-      <input matInput type="text">
-      <mat-hint>Ingresa un nombre</mat-hint>
+      <input matInput type="text" formControlName="name">
+      <mat-error *ngIf="affiliateForm.get('name')?.errors?.['required']">
+        El nombre es <strong>requerido</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field">
       <mat-label>Edad de Afiliado</mat-label>
-      <input matInput type="number">
-      <mat-hint>Ingresa la edad</mat-hint>
+      <input matInput type="number" formControlName="age">
+      <mat-error *ngIf="affiliateForm.get('age')?.errors?.['required']">
+        La edad es <strong>requerida</strong>
+      </mat-error>
+      <mat-error *ngIf="affiliateForm.get('age')?.errors?.['min']">
+        La edad no puede ser menor que <strong>0</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      <input type="email" matInput formControlName="mail" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="affiliateForm.get('mail')?.errors?.['email']">
         Please enter a valid email address
       </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
+      <mat-error *ngIf="affiliateForm.get('mail')?.errors?.['required']">
         Email is <strong>required</strong>
       </mat-error>
     </mat-form-field>

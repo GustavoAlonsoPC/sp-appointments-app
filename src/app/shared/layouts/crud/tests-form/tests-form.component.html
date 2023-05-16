@@ -1,21 +1,25 @@
 <div class="container">
-  <form class="example-form">
+  <form class="example-form" [formGroup]="testForm">
 
     <mat-form-field class="form-field">
       <mat-label>Nombre de la Prueba</mat-label>
-      <input matInput type="text">
-      <mat-hint>Ingresa prueba</mat-hint>
+      <input matInput type="text" formControlName="name" required>
+      <mat-error *ngIf="testForm.get('name')?.touched && testForm.get('name')?.errors?.['required']">
+        El nombre de la prueba es <strong>requerido</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field">
       <mat-label>Descripción de la prueba</mat-label>
-      <input matInput type="text">
-      <mat-hint>Ingresa la Descripción</mat-hint>
+      <input matInput type="text" formControlName="description" required>
+      <mat-error *ngIf="testForm.get('description')?.touched && testForm.get('description')?.errors?.['required']">
+        La descripción de la prueba es <strong>requerido</strong>
+      </mat-error>
     </mat-form-field>
 
     <div class="actions">
-      <button mat-raised-button color="primary">Guardar</button>
-      <button mat-raised-button color="warn">Cancelar</button>
+      <a mat-raised-button color="primary">Guardar</a>
+      <a mat-raised-button color="warn">Cancelar</a>
     </div>
   </form>
 </div>

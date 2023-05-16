@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -7,9 +7,23 @@ import {FormControl, Validators} from '@angular/forms';
   templateUrl: './affiliates-form.component.html',
   styleUrls: ['./affiliates-form.component.css']
 })
-export class AffiliatesFormComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+export class AffiliatesFormComponent implements OnInit {
 
   name = '';
   age = 0;
+
+  affiliateForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
+  ngOnInit(): void {
+    this.affiliateForm = this.initForm();
+  }
+
+  initForm(): FormGroup {
+    return this.fb.group({
+      name: new FormControl('', [Validators.required]),
+      mail: new FormControl('', [Validators.email, Validators.required]),
+      age: new FormControl(0, [Validators.required, Validators.min(0)]),
+    })
+  }
 }

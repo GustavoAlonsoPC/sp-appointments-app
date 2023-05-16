@@ -2,22 +2,24 @@
   <form class="example-form">
 
     <mat-form-field class="form-field">
-      <mat-label>Nombre de la Prueba</mat-label>
-      <input matInput type="text">
-      <mat-hint>Ingresa prueba</mat-hint>
+      <mat-label>Fecha de la Prueba</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field class="form-field">
-      <mat-label>Descripción de la prueba</mat-label>
-      <input matInput type="text">
-      <mat-hint>Ingresa la Descripción</mat-hint>
+      <mat-label>Hora de la Prueba</mat-label>
+      <input matInput type="datetime-local">
+      <mat-hint>Ingresa una hora</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Id Afiliado</mat-label>
       <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+        <mat-option value="">Seleccione un Id</mat-option>
+        <mat-option *ngFor="let id of affiliatesIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
       <mat-hint>Seleciona un Id</mat-hint>
     </mat-form-field>
@@ -25,8 +27,8 @@
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Id Prueba</mat-label>
       <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+        <mat-option value="">Seleccione un Id</mat-option>
+        <mat-option *ngFor="let id of testIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
       <mat-hint>Seleciona un Id</mat-hint>
     </mat-form-field>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { HttpClientModule } from "@angular/common/http";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -72,7 +72,7 @@ import { NoContentCardComponent } from './shared/components/no-content-card/no-c
     BrowserModule,
     MatIconModule,
     AppRoutingModule,
-    NgbModule,
+    //NgbModule,
     HttpClientModule,
     MatToolbarModule,
     MatDatepickerModule,

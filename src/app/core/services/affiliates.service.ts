@@ -6,9 +6,6 @@ import { Affiliate } from '../../shared/models/affiliate.model';
   providedIn: 'root'
 })
 export class AffiliatesService {
-  getById(id: number) {
-    return this.http.get<Affiliate>(`${this.afftUrl}/${id}`)
-  }
 
   private afftUrl = "/api/controller/affiliates";
   constructor(private http: HttpClient) { }
@@ -17,7 +14,15 @@ export class AffiliatesService {
     return this.http.get<Affiliate[]>(this.afftUrl);
   }
 
+  getById(id: number) {
+    return this.http.get<Affiliate>(`${this.afftUrl}/${id}`)
+  }
+
   save(newAff: {name: string, age: number, mail: string}) {
     return this.http.post<Affiliate>(this.afftUrl, newAff);
+  }
+
+  update(existing: {name?: string, age?: number, mail?: string}, id: number) {
+    return this.http.put<Affiliate>(`${this.afftUrl}?affiliateId=${id}`, existing)
   }
 }

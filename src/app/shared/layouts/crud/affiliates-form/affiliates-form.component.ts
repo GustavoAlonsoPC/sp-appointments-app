@@ -36,6 +36,6 @@ export class AffiliatesFormComponent implements OnInit {
 
   onSubmit() {
     if (this.register.id === 0) this.service.save(this.affiliateForm.value).subscribe(r => console.log(r))
-    else console.log(this.affiliateForm.value)
+    else this.service.update(this.affiliateForm.value, this.register.id).subscribe(r => console.log(r))
   }
 }

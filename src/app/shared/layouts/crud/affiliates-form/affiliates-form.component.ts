@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { AffiliatesService } from 'src/app/core/services/affiliates.service';
+import { Affiliate } from 'src/app/shared/models/affiliate.model';
 
 
 @Component({
@@ -9,21 +11,31 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AffiliatesFormComponent implements OnInit {
 
-  name = '';
-  age = 0;
+  @Input() register: Affiliate = {
+    id: 0, name: '',
+    age: 0, mail: ''
+  }
 
   affiliateForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: AffiliatesService
+    ) {}
   ngOnInit(): void {
     this.affiliateForm = this.initForm();
   }
 
   initForm(): FormGroup {
     return this.fb.group({
-      name: new FormControl('', [Validators.required]),
-      mail: new FormControl('', [Validators.email, Validators.required]),
-      age: new FormControl(0, [Validators.required, Validators.min(0)]),
+      name: new FormControl(this.register.name, [Validators.required]),
+      mail: new FormControl(this.register.mail, [Validators.email, Validators.required]),
+      age: new FormControl(this.register.age, [Validators.required, Validators.min(0)]),
     })
+  }
+
+  onSubmit() {
+    if (this.register.id === 0) this.service.save(this.affiliateForm.value).subscribe(r => console.log(r))
+    else console.log(this.affiliateForm.value)
   }
 }

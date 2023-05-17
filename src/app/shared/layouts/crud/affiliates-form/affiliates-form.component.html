@@ -1,5 +1,10 @@
 <div class="container">
-  <form class="example-form" [formGroup]="affiliateForm">
+  <form class="example-form" [formGroup]="affiliateForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="form-field" *ngIf="register.id !== 0">
+      <mat-label>Id de Afiliado</mat-label>
+      <input disabled matInput [value]="register.id" type="text">
+    </mat-form-field>
 
     <mat-form-field class="form-field">
       <mat-label>Nombre de Afiliado</mat-label>
@@ -32,7 +37,7 @@
     </mat-form-field>
 
     <div class="actions">
-      <a [disabled]="affiliateForm.invalid" mat-raised-button color="primary">Guardar</a>
+      <button [disabled]="affiliateForm.invalid" mat-raised-button color="primary">Guardar</button>
       <a mat-raised-button color="warn" routerLink="/affiliates">Cancelar</a>
     </div>
   </form>

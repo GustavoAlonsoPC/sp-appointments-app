@@ -6,11 +6,18 @@ import { Affiliate } from '../../shared/models/affiliate.model';
   providedIn: 'root'
 })
 export class AffiliatesService {
+  getById(id: number) {
+    return this.http.get<Affiliate>(`${this.afftUrl}/${id}`)
+  }
 
-  private testUrl = "/api/controller/affiliates";
+  private afftUrl = "/api/controller/affiliates";
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<Affiliate[]>(this.testUrl);
+    return this.http.get<Affiliate[]>(this.afftUrl);
+  }
+
+  save(newAff: {name: string, age: number, mail: string}) {
+    return this.http.post<Affiliate>(this.afftUrl, newAff);
   }
 }

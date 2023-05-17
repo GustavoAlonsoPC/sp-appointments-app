@@ -7,7 +7,7 @@
   justify-content: right;
 }
 
-.actions button {
+.actions a, .actions button {
   margin-left: 1rem;
   padding: 1rem;
 }

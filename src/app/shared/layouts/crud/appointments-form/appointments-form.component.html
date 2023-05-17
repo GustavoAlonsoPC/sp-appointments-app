@@ -1,9 +1,14 @@
 <div class="container">
-  <form class="example-form">
+  <form class="example-form" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="form-field" *ngIf="register.id !== 0">
+      <mat-label>Id de la prueba</mat-label>
+      <input disabled matInput [value]="register.id" type="text">
+    </mat-form-field>
 
     <mat-form-field class="form-field">
       <mat-label>Fecha de la Prueba</mat-label>
-      <input matInput [matDatepicker]="picker" [formControl]="pick">
+      <input matInput [matDatepicker]="picker" formControlName="dateAppointment">
       <mat-hint>DD/MM/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
@@ -11,13 +16,13 @@
 
     <mat-form-field class="form-field">
       <mat-label>Hora de la Prueba</mat-label>
-      <input matInput type="time" [formControl]="hour">
+      <input matInput type="time" formControlName="hourAppointment">
       <mat-hint>Ingresa una hora</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Id Afiliado</mat-label>
-      <mat-select>
+      <mat-select formControlName="idAffiliate">
         <mat-option value="">Seleccione un Id</mat-option>
         <mat-option *ngFor="let id of affiliatesIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
@@ -26,7 +31,7 @@
 
     <mat-form-field appearance="fill" class="form-field">
       <mat-label>Id Prueba</mat-label>
-      <mat-select>
+      <mat-select formControlName="idTest">
         <mat-option value="">Seleccione un Id</mat-option>
         <mat-option *ngFor="let id of testIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
@@ -34,14 +39,15 @@
     </mat-form-field>
 
     <div class="actions">
-      <button mat-raised-button color="primary">Guardar</button>
-      <button mat-raised-button color="warn">Cancelar</button>
+      <button type="submit" [disabled]="appointmentForm.invalid" mat-raised-button color="primary">Guardar</button>
+      <a mat-raised-button color="warn">Cancelar</a>
     </div>
   </form>
 
-  <pre>
+<!--   <pre>
     date: {{showTime() }}
     <br>
     hour: {{showHour()}}
   </pre>
+ -->
 </div>

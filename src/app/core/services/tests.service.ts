@@ -19,7 +19,7 @@ export class TestsService {
   }
 
   save(newTest: {name: string, description: string}) {
-    return this.http.post(this.testUrl, newTest);
+    return this.http.post<Test>(this.testUrl, newTest);
   }
 
   update() {

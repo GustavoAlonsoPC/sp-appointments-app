@@ -34,6 +34,7 @@ export class TestsFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.register.id === 0) console.log(this.service.save(this.testForm.value))
+    if (this.register.id === 0) this.service.save(this.testForm.value).subscribe(r => console.log(r))
+    else console.log(this.testForm.value)
   }
 }

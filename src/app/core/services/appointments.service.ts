@@ -7,15 +7,19 @@ import { Appointment } from '../../shared/models/appointment.model';
 })
 export class AppointmentsService {
 
-  private testUrl = "/api/controller/appointments";
+  private appUrl = "/api/controller/appointments";
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<Appointment[]>(this.testUrl);
+    return this.http.get<Appointment[]>(this.appUrl);
   }
 
   getByAffiliateId(idAffiliate: number) {
-    return this.http.get<Appointment[]>(`${this.testUrl}/aff?idAffiliate=${idAffiliate}`);
+    return this.http.get<Appointment[]>(`${this.appUrl}/aff?idAffiliate=${idAffiliate}`);
+  }
+
+  save(newAppointment: {dateAppointment: string, hourAppointment: string, idAffiliate: number, idTest: number}) {
+    return this.http.post<Appointment>(this.appUrl, newAppointment)
   }
 
 }

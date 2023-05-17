@@ -2,6 +2,7 @@ import { formatDate } from '@angular/common';
 import { Component, LOCALE_ID, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
+import { AppointmentsService } from 'src/app/core/services/appointments.service';
 import { TestsService } from 'src/app/core/services/tests.service';
 import { Appointment } from 'src/app/shared/models/appointment.model';
 
@@ -26,6 +27,7 @@ export class AppointmentsFormComponent implements OnInit {
     private affiliates: AffiliatesService, 
     private tests: TestsService,
     private fb: FormBuilder,
+    private service: AppointmentsService,
     @Inject(LOCALE_ID) private locale: string
   ) {
       this.affiliates.getAll().subscribe(affs => {
@@ -52,7 +54,8 @@ export class AppointmentsFormComponent implements OnInit {
 
   onSubmit() {
     this.appointmentForm.get('dateAppointment')?.setValue(this.getDate())
-    if (this.register.id === 0) console.log(this.appointmentForm.value)
+    if (this.register.id === 0) this.service.save(this.appointmentForm.value).subscribe(r => console.log(r))
+    else console.log(this.appointmentForm.value)
   }
 
   getDate() {

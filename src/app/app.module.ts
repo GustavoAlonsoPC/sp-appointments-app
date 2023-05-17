@@ -16,7 +16,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgxMatTimepickerModule} from 'ngx-mat-timepicker'; 
 
 
 
@@ -89,7 +88,6 @@ import { NoContentCardComponent } from './shared/components/no-content-card/no-c
     MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMatTimepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

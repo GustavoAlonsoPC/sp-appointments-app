@@ -14,15 +14,11 @@ export class AppointmentsFormComponent implements OnInit {
 
   appointmentForm!: FormGroup;
   
-/*   pick: FormControl = new FormControl(new Date(), [Validators.required])
-  hour: FormControl = new FormControl('', [Validators.required])
- */
-  
   affiliatesIdList: number[] = [];
   testIdList: number[] = [];
 
   register: Appointment = {
-    id: 0, dateAppointment: (new Date()).toString(), hourAppointment: '',
+    id: 0, dateAppointment: (new Date()).toJSON(), hourAppointment: '',
     idAffiliate: 0, idTest: 0
   }
 
@@ -49,22 +45,17 @@ export class AppointmentsFormComponent implements OnInit {
     return this.fb.group({
       dateAppointment: new FormControl(this.register.dateAppointment, [Validators.required]),
       hourAppointment: new FormControl(this.register.hourAppointment, [Validators.required]),
-      idAffiliate: new FormControl(this.register.idAffiliate, [Validators.required]),
-      idTest: new FormControl(this.register.idTest, [Validators.required])
+      idAffiliate: new FormControl(this.register.idAffiliate, [Validators.required, Validators.min(1)]),
+      idTest: new FormControl(this.register.idTest, [Validators.required, Validators.min(1)])
     })
   }
 
   onSubmit() {
+    this.appointmentForm.get('dateAppointment')?.setValue(this.getDate())
     if (this.register.id === 0) console.log(this.appointmentForm.value)
   }
-  
-/* 
-  showTime() {
-    
-    return formatDate(this.pick.value, 'dd/MM/yyyy', this.locale)
+
+  getDate() {
+    return formatDate(this.appointmentForm.get('dateAppointment')?.value, 'dd/MM/yyyy', this.locale)
   }
-  showHour() {
-    return this.hour.value
-  }
- */
 }

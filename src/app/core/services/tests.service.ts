@@ -22,7 +22,7 @@ export class TestsService {
     return this.http.post<Test>(this.testUrl, newTest);
   }
 
-  update() {
-
+  update(existing: {name?: string, description?: string}, id: number) {
+    return this.http.put<Test>(`${this.testUrl}?testId=${id}`, existing)
   }
 }

@@ -16,8 +16,20 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
 
-
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -89,7 +101,11 @@ import { NoContentCardComponent } from './shared/components/no-content-card/no-c
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

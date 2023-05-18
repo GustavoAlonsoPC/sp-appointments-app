@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HomeDataSource } from 'src/app/shared/models/home-data-source.model';
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
 import { AppointmentsService } from 'src/app/core/services/appointments.service';
@@ -11,8 +11,8 @@ import { TestsService } from 'src/app/core/services/tests.service';
   styleUrls: ['./main-list.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ]
@@ -25,33 +25,33 @@ export class MainListComponent implements OnInit {
 
   tableSource: HomeDataSource[] = [];
 
-  columnHeaders: {[key: string]: string} = {
+  columnHeaders: { [key: string]: string } = {
     id: 'Id',
     name: 'Nombre de afiliado',
     age: 'Edad',
     mail: 'Correo electrónico'
   }
 
-  testsNames: {[key: number]: string} = { }
+  testsNames: { [key: number]: string } = {}
 
   constructor(
     private affiliates: AffiliatesService,
     private appointments: AppointmentsService,
     private tests: TestsService
-    ) {
-      this.affiliates.getAll().subscribe(data => {
-        data.forEach(aff => {
-          this.tableSource.push({
-            id: aff.id,
-            name: aff.name,
-            mail: aff.mail,
-            age: aff.age,
-            nestedData: []
-          })
-          this.dataSource = this.tableSource
-        });
-      })
-     }
+  ) {
+    this.affiliates.getAll().subscribe(data => {
+      data.forEach(aff => {
+        this.tableSource.push({
+          id: aff.id,
+          name: aff.name,
+          mail: aff.mail,
+          age: aff.age,
+          nestedData: []
+        })
+        this.dataSource = this.tableSource
+      });
+    })
+  }
   ngOnInit(): void {
     this.tests.getAll().subscribe(all => {
       all.forEach(t => this.testsNames[t.id] = t.name)
@@ -59,13 +59,13 @@ export class MainListComponent implements OnInit {
   }
 
   onAffClick(idAffiliate: number) {
-  
+
     this.tableSource.filter(aff => aff.id === idAffiliate)
       .forEach(aff => {
-        if(aff.nestedData.length > 0) return;
+        if (aff.nestedData.length > 0) return;
 
         this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
-          if(!data) return;
+          if (!data) return;
 
           data.forEach(a => {
             aff.nestedData.push({

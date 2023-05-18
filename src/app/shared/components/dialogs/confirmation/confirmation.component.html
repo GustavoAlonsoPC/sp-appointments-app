@@ -1,1 +1,12 @@
-<p>confirmation works!</p>
+<div class="header">
+  <h1 mat-dialog-title>{{data.title}}</h1>
+</div>
+
+<div class="content" mat-dialog-content>
+  {{data.message}}
+</div>
+
+<div class="actions" mat-dialog-actions [align]="'end'">
+  <button class="action" mat-raised-button [mat-dialog-close]="false">{{data.cancelText}}</button>
+  <button class="action" mat-raised-button [mat-dialog-close]="true">{{data.confirmText}}</button>
+</div>

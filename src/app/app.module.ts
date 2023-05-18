@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from "@angular/common/http";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -90,7 +90,7 @@ import { ErrorComponent } from './shared/components/dialogs/error/error.componen
     BrowserModule,
     MatIconModule,
     AppRoutingModule,
-    //NgbModule,
+    MatDialogModule,
     HttpClientModule,
     MatToolbarModule,
     MatDatepickerModule,

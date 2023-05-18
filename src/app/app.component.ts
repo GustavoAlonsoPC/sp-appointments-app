@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DialogService } from './core/services/dialog.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'sp-appointments-app';
 
-  constructor() {}
+  constructor(private dialogService: DialogService) {}
 
-  public open(modal: any): void {
-    
-  }
+  
 }

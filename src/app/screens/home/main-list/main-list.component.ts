@@ -60,25 +60,22 @@ export class MainListComponent implements OnInit {
 
   onAffClick(idAffiliate: number) {
   
-    this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
-      if (!data) return
-    
-      this.tableSource.filter(aff => aff.id === idAffiliate)
-        .forEach(aff => {
-          if (aff.nestedData.length > 0) return;
-          this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
-            data.forEach(a => {
-              console.log(this.testsNames)
-              aff.nestedData.push({
-                id: a.id,
-                dateAppointment: a.dateAppointment,
-                hourAppointment: a.hourAppointment,
-                testName: this.testsNames[a.idTest]
-              });
+    this.tableSource.filter(aff => aff.id === idAffiliate)
+      .forEach(aff => {
+        if(aff.nestedData.length > 0) return;
+
+        this.appointments.getByAffiliateId(idAffiliate).subscribe(data => {
+          if(!data) return;
+
+          data.forEach(a => {
+            aff.nestedData.push({
+              id: a.id,
+              dateAppointment: a.dateAppointment,
+              hourAppointment: a.hourAppointment,
+              testName: this.testsNames[a.idTest]
             })
           })
         })
-    });
-    console.log(this.tableSource);
+      })
   }
 }

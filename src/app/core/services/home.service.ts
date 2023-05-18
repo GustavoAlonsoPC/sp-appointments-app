@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { AffiliatesService } from './affiliates.service';
 import { AppointmentsService } from './appointments.service';
 import { TestsService } from './tests.service';
-import { Affiliate } from 'src/app/shared/models/affiliate.model';
+import { Affiliate } from 'src/app/core/models/affiliate.model';
 import { Observable } from 'rxjs';
-import { Appointment } from 'src/app/shared/models/appointment.model';
-import { CustomAppointmentsDetails } from 'src/app/shared/models/custom-appointments-detals.model';
+import { Appointment } from 'src/app/core/models/appointment.model';
+import { CustomAppointmentsDetails } from 'src/app/core/models/custom-appointments-detals.model';
 
 @Injectable({
   providedIn: 'root'

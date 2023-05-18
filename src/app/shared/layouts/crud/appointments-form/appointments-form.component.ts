@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
 import { AppointmentsService } from 'src/app/core/services/appointments.service';
 import { TestsService } from 'src/app/core/services/tests.service';
-import { Appointment } from 'src/app/shared/models/appointment.model';
+import { Appointment } from 'src/app/core/models/appointment.model';
 
 @Component({
   selector: 'app-appointments-form',

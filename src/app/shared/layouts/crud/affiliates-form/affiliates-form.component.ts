@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
-import { Affiliate } from 'src/app/shared/models/affiliate.model';
+import { Affiliate } from 'src/app/core/models/affiliate.model';
 
 
 @Component({

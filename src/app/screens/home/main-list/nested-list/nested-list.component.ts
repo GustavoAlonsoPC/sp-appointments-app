@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CustomAppointmentsDetails } from 'src/app/shared/models/custom-appointments-detals.model';
+import { CustomAppointmentsDetails } from 'src/app/core/models/custom-appointments-detals.model';
 
 @Component({
   selector: 'app-nested-list',

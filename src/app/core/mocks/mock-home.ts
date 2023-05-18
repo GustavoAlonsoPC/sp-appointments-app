@@ -1,4 +1,4 @@
-import { HomeDataSource } from "src/app/shared/models/home-data-source.model";
+import { HomeDataSource } from "src/app/core/models/home-data-source.model";
 
 export const HOME_DATA: HomeDataSource[] = [
   {

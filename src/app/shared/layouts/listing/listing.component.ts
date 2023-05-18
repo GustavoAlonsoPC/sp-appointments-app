@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Test } from '../../models/test.model';
-import { Affiliate } from '../../models/affiliate.model';
-import { Appointment } from '../../models/appointment.model';
-import { Item } from '../../models/item.model';
+import { Test } from '../../../core/models/test.model';
+import { Affiliate } from '../../../core/models/affiliate.model';
+import { Appointment } from '../../../core/models/appointment.model';
+import { Item } from '../../../core/models/item.model';
 
 @Component({
   selector: 'app-listing',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Affiliate } from 'src/app/shared/models/affiliate.model';
-import { Item } from 'src/app/shared/models/item.model';
+import { Affiliate } from 'src/app/core/models/affiliate.model';
+import { Item } from 'src/app/core/models/item.model';
 import { AffiliatesService } from 'src/app/core/services/affiliates.service';
 
 @Component({

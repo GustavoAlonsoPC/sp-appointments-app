@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from 'src/app/shared/models/item.model';
-import { Test } from 'src/app/shared/models/test.model';
+import { Item } from 'src/app/core/models/item.model';
+import { Test } from 'src/app/core/models/test.model';
 import { TestsService } from 'src/app/core/services/tests.service';
 
 @Component({

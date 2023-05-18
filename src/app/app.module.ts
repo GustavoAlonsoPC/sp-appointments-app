@@ -54,6 +54,9 @@ import { AppointmentsEditComponent } from './screens/appointments-edit/appointme
 import { TestsNewComponent } from './screens/tests-new/tests-new.component';
 import { TestsEditComponent } from './screens/tests-edit/tests-edit.component';
 import { NoContentCardComponent } from './shared/components/no-content-card/no-content-card.component';
+import { ConfirmationComponent } from './shared/components/dialogs/confirmation/confirmation.component';
+import { SuccessComponent } from './shared/components/dialogs/success/success.component';
+import { ErrorComponent } from './shared/components/dialogs/error/error.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +81,10 @@ import { NoContentCardComponent } from './shared/components/no-content-card/no-c
     AppointmentsEditComponent,
     TestsNewComponent,
     TestsEditComponent,
-    NoContentCardComponent
+    NoContentCardComponent,
+    ConfirmationComponent,
+    SuccessComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

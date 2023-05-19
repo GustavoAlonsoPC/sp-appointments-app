@@ -25,4 +25,8 @@ export class TestsService {
   update(existing: {name?: string, description?: string}, id: number) {
     return this.http.put<Test>(`${this.testUrl}?testId=${id}`, existing)
   }
+
+  delete(id: number) {
+    return this.http.delete<boolean>(`${this.testUrl}/${id}`)
+  }
 }

@@ -7,22 +7,26 @@ import { Affiliate } from '../../models/affiliate.model';
 })
 export class AffiliatesService {
 
-  private afftUrl = "/api/controller/affiliates";
+  private affUrl = "/api/controller/affiliates";
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<Affiliate[]>(this.afftUrl);
+    return this.http.get<Affiliate[]>(this.affUrl);
   }
 
   getById(id: number) {
-    return this.http.get<Affiliate>(`${this.afftUrl}/${id}`)
+    return this.http.get<Affiliate>(`${this.affUrl}/${id}`)
   }
 
   save(newAff: {name: string, age: number, mail: string}) {
-    return this.http.post<Affiliate>(this.afftUrl, newAff);
+    return this.http.post<Affiliate>(this.affUrl, newAff);
   }
 
   update(existing: {name?: string, age?: number, mail?: string}, id: number) {
-    return this.http.put<Affiliate>(`${this.afftUrl}?affiliateId=${id}`, existing)
+    return this.http.put<Affiliate>(`${this.affUrl}?affiliateId=${id}`, existing)
+  }
+
+  delete(id: number) {
+    return this.http.delete<boolean>(`${this.affUrl}/${id}`)
   }
 }

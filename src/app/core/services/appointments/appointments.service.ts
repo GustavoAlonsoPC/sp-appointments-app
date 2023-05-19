@@ -22,4 +22,8 @@ export class AppointmentsService {
     return this.http.post<Appointment>(this.appUrl, newAppointment)
   }
 
+  delete(id: number) {
+    return this.http.delete<boolean>(`${this.appUrl}/${id}`)
+  }
+
 }

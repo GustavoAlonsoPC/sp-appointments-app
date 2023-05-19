@@ -23,7 +23,7 @@ export class AppointmentsService {
   }
 
   delete(id: number) {
-    return this.http.delete<boolean>(`${this.appUrl}/${id}`)
+    return this.http.delete<boolean>(`${this.appUrl}/${id}`, {observe: 'response'})
   }
 
 }

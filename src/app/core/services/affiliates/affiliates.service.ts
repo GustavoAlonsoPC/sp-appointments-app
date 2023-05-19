@@ -27,6 +27,6 @@ export class AffiliatesService {
   }
 
   delete(id: number) {
-    return this.http.delete<boolean>(`${this.affUrl}/${id}`)
+    return this.http.delete(`${this.affUrl}/${id}`, {observe: 'response'})
   }
 }

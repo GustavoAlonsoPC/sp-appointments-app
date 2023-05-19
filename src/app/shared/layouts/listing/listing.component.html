@@ -15,10 +15,10 @@
 								<tr *ngFor="let item of items.listingItems">
 									<td *ngFor="let attribute of getAttributeValues(item)">{{ attribute }}</td>
 									<td class="listing-actions">
-										<a mat-icon-button [routerLink]="[pathLink, item.id]">
+										<a mat-icon-button [routerLink]="['update', item.id]">
 											<mat-icon>edit</mat-icon>
 										</a>
-										<a mat-icon-button (click)="openDialog()">
+										<a mat-icon-button (click)="openDialog(item.id)">
 											<mat-icon>delete</mat-icon>
 										</a>
 									</td>

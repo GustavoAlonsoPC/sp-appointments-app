@@ -27,6 +27,6 @@ export class TestsService {
   }
 
   delete(id: number) {
-    return this.http.delete<boolean>(`${this.testUrl}/${id}`)
+    return this.http.delete<boolean>(`${this.testUrl}/${id}`, {observe: 'response'})
   }
 }

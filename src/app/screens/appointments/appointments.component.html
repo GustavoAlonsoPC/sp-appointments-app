@@ -1,4 +1,4 @@
 <app-view-header [viewTitle]="'Citas'">
   <app-new-item [pathLink]="'new'" [itemName]="'Cita'"></app-new-item>
 </app-view-header>
-<app-listing [items]="itemType()" [itemsAttr]="attrs" [pathLink]="'update'"></app-listing>
+<app-listing [items]="itemType()" [itemsAttr]="attrs" [context]="'appointments'"></app-listing>

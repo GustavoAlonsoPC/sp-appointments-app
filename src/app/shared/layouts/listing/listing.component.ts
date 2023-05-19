@@ -4,6 +4,7 @@ import { Affiliate } from '../../../core/models/affiliate.model';
 import { Appointment } from '../../../core/models/appointment.model';
 import { Item } from '../../../core/models/item.model';
 import { DialogService } from 'src/app/core/services/dialog.service';
+import { ManagerService } from 'src/app/core/services/manager.service';
 
 @Component({
   selector: 'app-listing',
@@ -18,20 +19,29 @@ export class ListingComponent {
     listingItems: []
   }
 
-  @Input() pathLink: string = '';
+  @Input() context: string = '';
 
-  constructor(private dialogService: DialogService) {}
+  constructor(
+    private dialogService: DialogService,
+    private manager: ManagerService
+  ) {}
 
   getAttributeValues<T extends {}>(obj: T): T[] {
     return Object.values(obj)
   }
 
-  public openDialog(): void {
+  public openDialog(id: number): void {
     this.dialogService.confirmDialog({
       title: 'Confirm Action',
       message: 'Are you sure?',
       cancelText: 'Not Sure',
       confirmText: "Yes, I'm sure"
-    }).subscribe(r => console.log(r))
+    }).subscribe(r => {
+      if(!r) return;
+
+      this.manager.delete(this.context, id)?.subscribe(r => {
+        r.status === 204 ? console.log('deleted') : console.log('not deleted')
+      })
+    })
   }
 }

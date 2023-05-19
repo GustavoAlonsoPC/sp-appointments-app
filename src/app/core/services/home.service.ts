@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AffiliatesService } from './affiliates.service';
-import { AppointmentsService } from './appointments.service';
-import { TestsService } from './tests.service';
+import { AffiliatesService } from './affiliates/affiliates.service';
+import { AppointmentsService } from './appointments/appointments.service';
+import { TestsService } from './tests/tests.service';
 import { Affiliate } from 'src/app/core/models/affiliate.model';
 import { Observable } from 'rxjs';
 import { Appointment } from 'src/app/core/models/appointment.model';

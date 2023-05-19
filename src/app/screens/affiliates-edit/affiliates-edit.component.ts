@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AffiliatesService } from 'src/app/core/services/affiliates.service';
+import { AffiliatesService } from 'src/app/core/services/affiliates/affiliates.service';
 import { Affiliate } from 'src/app/core/models/affiliate.model';
 
 @Component({

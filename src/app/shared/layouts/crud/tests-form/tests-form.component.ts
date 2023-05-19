@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { TestsService } from 'src/app/core/services/tests.service';
+import { TestsService } from 'src/app/core/services/tests/tests.service';
 import { Test } from 'src/app/core/models/test.model';
 
 @Component({

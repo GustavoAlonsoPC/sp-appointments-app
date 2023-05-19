@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HomeDataSource } from 'src/app/core/models/home-data-source.model';
-import { AffiliatesService } from 'src/app/core/services/affiliates.service';
-import { AppointmentsService } from 'src/app/core/services/appointments.service';
-import { TestsService } from 'src/app/core/services/tests.service';
+import { AffiliatesService } from 'src/app/core/services/affiliates/affiliates.service';
+import { AppointmentsService } from 'src/app/core/services/appointments/appointments.service';
+import { TestsService } from 'src/app/core/services/tests/tests.service';
 
 @Component({
   selector: 'app-main-list',

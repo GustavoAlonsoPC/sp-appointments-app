@@ -5,6 +5,8 @@ import { Appointment } from '../../../core/models/appointment.model';
 import { Item } from '../../../core/models/item.model';
 import { DialogService } from 'src/app/core/services/dialog.service';
 import { ManagerService } from 'src/app/core/services/manager.service';
+import { ConfirmDialogData } from 'src/app/core/models/confirm-dialog-data.model';
+import { SuccessDialogData } from 'src/app/core/models/success-dialog-data.model';
 
 @Component({
   selector: 'app-listing',
@@ -12,6 +14,7 @@ import { ManagerService } from 'src/app/core/services/manager.service';
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent {
+
 
   @Input() itemsAttr:string[] = [];
 
@@ -30,18 +33,41 @@ export class ListingComponent {
     return Object.values(obj)
   }
 
-  public openDialog(id: number): void {
-    this.dialogService.confirmDialog({
-      title: 'Confirm Action',
-      message: 'Are you sure?',
-      cancelText: 'Not Sure',
-      confirmText: "Yes, I'm sure"
-    }).subscribe(r => {
+  public openConfirmDeletionDialog(id: number): void {
+    this.dialogService.confirmDialog(DATA_DELETE_CONFIRMATION).subscribe(r => {
       if(!r) return;
 
       this.manager.delete(this.context, id)?.subscribe(r => {
-        r.status === 204 ? console.log('deleted') : console.log('not deleted')
+        switch (r.status) {
+          case 204:
+            this.dialogService.successDialog(DATA_DELETE_SUCCESS).subscribe(r => {
+              if(r) window.location.reload()
+            })
+            break;
+        
+          default:
+            break;
+        }
       })
     })
   }
+}
+
+const DATA_DELETE_CONFIRMATION: ConfirmDialogData = {
+  title: 'Confirmar eliminación de registro',
+  message: '¿Estás seguro(a)?',
+  cancelText: 'No estoy seguro(a)',
+  confirmText: "Sí, estoy seguro(a)"
+}
+
+const DATA_DELETE_SUCCESS: SuccessDialogData = {
+  title: '¡Eliminación correcta!',
+  message: 'Se ha eliminado correctamente el registro.',
+  acceptText: 'Aceptar'
+}
+
+const DICTIONARY: {[key: string]: string} = {
+  affiliates: 'afiliados',
+  tests: 'pruebas',
+  appointments: 'citas'
 }

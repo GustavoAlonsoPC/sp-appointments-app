@@ -1,2 +1,2 @@
 <app-view-header [viewTitle]="'Citas - Actualizar Cita'"></app-view-header>
-<app-appointments-form></app-appointments-form>
+<app-appointments-form *ngIf="appointment.id !== 0" [register]="appointment"></app-appointments-form>

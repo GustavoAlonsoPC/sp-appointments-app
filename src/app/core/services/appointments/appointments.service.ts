@@ -14,12 +14,20 @@ export class AppointmentsService {
     return this.http.get<Appointment[]>(this.appUrl);
   }
 
+  getById(id: number) {
+    return this.http.get<Appointment>(`${this.appUrl}/${id}`);
+  }
+
   getByAffiliateId(idAffiliate: number) {
     return this.http.get<Appointment[]>(`${this.appUrl}/aff?idAffiliate=${idAffiliate}`);
   }
 
   save(newAppointment: {dateAppointment: string, hourAppointment: string, idAffiliate: number, idTest: number}) {
     return this.http.post<Appointment>(this.appUrl, newAppointment)
+  }
+
+  update(existing: {dateAppointment?: string, hourAppointment?: string, idAffiliate?: number, idTest?: number}, id: number) {
+    return this.http.put<Appointment>(`${this.appUrl}?appointmentId=${id}`, existing)
   }
 
   delete(id: number) {

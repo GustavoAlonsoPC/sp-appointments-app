@@ -5,6 +5,8 @@ import { ConfirmDialogData } from '../models/confirm-dialog-data.model';
 import { Observable } from 'rxjs';
 import { SuccessDialogData } from '../models/success-dialog-data.model';
 import { SuccessComponent } from 'src/app/shared/components/dialogs/success/success.component';
+import { ErrorDialogData } from '../models/error-dialog-data.model';
+import { ErrorComponent } from 'src/app/shared/components/dialogs/error/error.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,14 @@ export class DialogService {
 
   successDialog(data: SuccessDialogData): Observable<boolean> {
     return this.dialog.open(SuccessComponent, {
+      data,
+      width: '400px',
+      disableClose: true
+    }).afterClosed()
+  }
+
+  errorDialog(data: ErrorDialogData): Observable<boolean> {
+    return this.dialog.open(ErrorComponent, {
       data,
       width: '400px',
       disableClose: true

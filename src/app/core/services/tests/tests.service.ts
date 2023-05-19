@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Test } from '../../models/test.model';
 
@@ -27,6 +27,6 @@ export class TestsService {
   }
 
   delete(id: number) {
-    return this.http.delete<boolean>(`${this.testUrl}/${id}`, {observe: 'response'})
+    return this.http.delete(`${this.testUrl}/${id}`, {observe: 'response'})
   }
 }

@@ -7,6 +7,8 @@ import { DialogService } from 'src/app/core/services/dialog.service';
 import { ManagerService } from 'src/app/core/services/manager.service';
 import { ConfirmDialogData } from 'src/app/core/models/confirm-dialog-data.model';
 import { SuccessDialogData } from 'src/app/core/models/success-dialog-data.model';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-listing',
@@ -37,18 +39,21 @@ export class ListingComponent {
     this.dialogService.confirmDialog(DATA_DELETE_CONFIRMATION).subscribe(r => {
       if(!r) return;
 
-      this.manager.delete(this.context, id)?.subscribe(r => {
-        switch (r.status) {
-          case 204:
-            this.dialogService.successDialog(DATA_DELETE_SUCCESS).subscribe(r => {
-              if(r) window.location.reload()
-            })
-            break;
-        
-          default:
-            break;
-        }
-      })
+      this.manager.delete(this.context, id)?.pipe(
+        catchError(() => throwError(() => new Error('An error ocurred')))
+      )
+      .subscribe({next: (r) => {
+        this.dialogService.successDialog(DATA_DELETE_SUCCESS).subscribe(r => {
+          if(r) window.location.reload()
+        }).unsubscribe()
+      }, error: (err) => {
+        this.dialogService.errorDialog({
+          title: 'Imposible eliminar',
+          message: 'El registro que quieres eliminar está asociado a varias citas. Elimina esas citas para poder borrar este registro!',
+          acceptText: 'Aceptar',
+          actionText: 'Ir a citas'
+        }).subscribe(r => {if(r) window.location.reload()})
+      }})
     })
   }
 }

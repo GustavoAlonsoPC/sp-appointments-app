@@ -4,6 +4,7 @@ import { TestsService } from 'src/app/core/services/tests/tests.service';
 import { Test } from 'src/app/core/models/test.model';
 import { DialogService } from 'src/app/core/services/dialog.service';
 import { Router } from '@angular/router';
+import { DATA_SAVE_CONFIRMATION, DATA_SAVE_ERROR, DATA_SAVE_SUCCESS, DATA_UPDATE_CONFIRMATION, DATA_UPDATE_ERROR, DATA_UPDATE_SUCCESS } from 'src/app/core/utils/dialogs-data';
 
 @Component({
   selector: 'app-tests-form',
@@ -18,7 +19,7 @@ export class TestsFormComponent implements OnInit {
     description: ''
   }
 
-  testForm!: FormGroup;
+  form!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +28,7 @@ export class TestsFormComponent implements OnInit {
     private router: Router
     ) {}
   ngOnInit(): void {
-    this.testForm = this.initForm();
+    this.form = this.initForm();
   }
 
   initForm(): FormGroup {
@@ -39,53 +40,26 @@ export class TestsFormComponent implements OnInit {
 
   onSubmit() {
     if (this.register.id === 0) {
-      this.dialog.confirmDialog({
-        title: 'Guardar registro',
-        message: 'Estás a punto de guardar un nuevo registro, ¿seguro(a) de continuar?',
-        confirmText: 'Continuar',
-        cancelText: 'Cancelar'
-      }).subscribe(r => {
+      this.dialog.confirmDialog(DATA_SAVE_CONFIRMATION).subscribe(r => {
         if (!r) return;
 
-        this.service.save(this.testForm.value).subscribe({next: (r) => {
-            if(r) this.dialog.successDialog({
-              title: 'Guardado exitoso',
-              message: 'Se ha guardado un nuevo registro',
-              acceptText: 'Aceptar'
-            }).subscribe(s => {if(s) this.redirect()})
+        this.service.save(this.form.value).subscribe({next: (r) => {
+            if(r) this.dialog.successDialog(DATA_SAVE_SUCCESS).subscribe(s => {if(s) this.redirect()})
           }, error: (e) => {
             console.log(e)
-            this.dialog.errorDialog({
-              title: 'Ha ocurrido un error',
-              message: 'Tu registro no se ha podido guardar',
-              acceptText: 'Aceptar'
-            }).subscribe(s => {if(s) this.redirect()})
+            this.dialog.errorDialog(DATA_SAVE_ERROR).subscribe(s => {if(s) this.redirect()})
           }
         })
       })
     } else {
-      //this.service.update(this.testForm.value, this.register.id).subscribe()
-      this.dialog.confirmDialog({
-        title: 'Actualizar registro',
-        message: 'Estás a punto de actualizar un registro, ¿seguro(a) de continuar?',
-        confirmText: 'Continuar',
-        cancelText: 'Cancelar'
-      }).subscribe(r => {
+      this.dialog.confirmDialog(DATA_UPDATE_CONFIRMATION).subscribe(r => {
         if (!r) return;
 
-        this.service.update(this.testForm.value, this.register.id).subscribe({next: (r) => {
-            if(r) this.dialog.successDialog({
-              title: 'Actualización exitosa',
-              message: 'Se ha actualizado el registro',
-              acceptText: 'Aceptar'
-            }).subscribe(s => {if(s) this.redirect()})
+        this.service.update(this.form.value, this.register.id).subscribe({next: (r) => {
+            if(r) this.dialog.successDialog(DATA_UPDATE_SUCCESS).subscribe(s => {if(s) this.redirect()})
           }, error: (e) => {
             console.log(e)
-            this.dialog.errorDialog({
-              title: 'Ha ocurrido un error',
-              message: 'Tu registro no se ha podido actualizar',
-              acceptText: 'Aceptar'
-            }).subscribe(s => {if(s) this.redirect()})
+            this.dialog.errorDialog(DATA_UPDATE_ERROR).subscribe(s => {if(s) this.redirect()})
           }
         })
       })

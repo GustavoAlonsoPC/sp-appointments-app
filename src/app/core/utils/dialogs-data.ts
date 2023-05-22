@@ -22,4 +22,52 @@ const DATA_DELETE_ERROR: ErrorDialogData = {
   actionText: 'Ir a citas'
 }
 
-export {DATA_DELETE_SUCCESS, DATA_DELETE_CONFIRMATION, DATA_DELETE_ERROR}
+const DATA_SAVE_CONFIRMATION: ConfirmDialogData = {
+  title: 'Guardar registro',
+  message: 'Estás a punto de guardar un nuevo registro, ¿seguro(a) de continuar?',
+  confirmText: 'Continuar',
+  cancelText: 'Cancelar'
+}
+
+const DATA_SAVE_SUCCESS: SuccessDialogData = {
+  title: 'Guardado exitoso',
+  message: 'Se ha guardado un nuevo registro',
+  acceptText: 'Aceptar'
+}
+
+const DATA_SAVE_ERROR: ErrorDialogData = {
+  title: 'Ha ocurrido un error',
+  message: 'Tu registro no se ha podido guardar',
+  acceptText: 'Aceptar'
+}
+
+const DATA_UPDATE_CONFIRMATION: ConfirmDialogData = {
+  title: 'Actualizar registro',
+  message: 'Estás a punto de actualizar un registro, ¿seguro(a) de continuar?',
+  confirmText: 'Continuar',
+  cancelText: 'Cancelar'
+}
+
+const DATA_UPDATE_SUCCESS: SuccessDialogData = {
+  title: 'Actualización exitosa',
+  message: 'Se ha actualizado el registro',
+  acceptText: 'Aceptar'
+}
+
+const DATA_UPDATE_ERROR: ErrorDialogData = {
+  title: 'Ha ocurrido un error',
+  message: 'Tu registro no se ha podido actualizar',
+  acceptText: 'Aceptar'
+}
+
+export {
+  DATA_DELETE_SUCCESS, 
+  DATA_DELETE_CONFIRMATION, 
+  DATA_DELETE_ERROR,
+  DATA_SAVE_CONFIRMATION,
+  DATA_SAVE_SUCCESS,
+  DATA_SAVE_ERROR,
+  DATA_UPDATE_CONFIRMATION,
+  DATA_UPDATE_ERROR,
+  DATA_UPDATE_SUCCESS
+}

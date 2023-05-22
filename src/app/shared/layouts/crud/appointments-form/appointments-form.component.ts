@@ -1,9 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, LOCALE_ID, Inject, OnInit, Input, Injector } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AffiliatesService } from 'src/app/core/services/affiliates/affiliates.service';
-import { AppointmentsService } from 'src/app/core/services/appointments/appointments.service';
-import { TestsService } from 'src/app/core/services/tests/tests.service';
 import { Appointment } from 'src/app/core/models/appointment.model';
 import * as moment from 'moment';
 import { AbstractCrudForm } from 'src/app/core/base/abstract-crud-form';

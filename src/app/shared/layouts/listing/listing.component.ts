@@ -5,10 +5,7 @@ import { Appointment } from '../../../core/models/appointment.model';
 import { Item } from '../../../core/models/item.model';
 import { DialogService } from 'src/app/core/services/dialog.service';
 import { ManagerService } from 'src/app/core/services/manager.service';
-import { ConfirmDialogData } from 'src/app/core/models/confirm-dialog-data.model';
-import { SuccessDialogData } from 'src/app/core/models/success-dialog-data.model';
 import { catchError, throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 import { DATA_DELETE_CONFIRMATION, DATA_DELETE_ERROR, DATA_DELETE_SUCCESS } from 'src/app/core/utils/dialogs-data';
 
 @Component({

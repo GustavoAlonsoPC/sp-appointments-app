@@ -19,8 +19,8 @@
         <mat-form-field appearance="fill">
           <mat-label>Id Afiliado</mat-label>
           <mat-select formControlName="idAff">
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
+            <mat-option value="">Seleccione un id</mat-option>
+            <mat-option *ngFor="let id of ids" value="{{id}}">{{id}}</mat-option>
           </mat-select>
         </mat-form-field>
         <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">

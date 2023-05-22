@@ -4,6 +4,7 @@ import { HomeDataSource } from 'src/app/core/models/home-data-source.model';
 import { AffiliatesService } from 'src/app/core/services/affiliates/affiliates.service';
 import { AppointmentsService } from 'src/app/core/services/appointments/appointments.service';
 import { TestsService } from 'src/app/core/services/tests/tests.service';
+import { HomeService } from 'src/app/core/services/home.service';
 
 @Component({
   selector: 'app-main-list',
@@ -37,7 +38,8 @@ export class MainListComponent implements OnInit {
   constructor(
     private affiliates: AffiliatesService,
     private appointments: AppointmentsService,
-    private tests: TestsService
+    private tests: TestsService,
+    private homeS: HomeService
   ) {
     this.affiliates.getAll().subscribe(data => {
       data.forEach(aff => {
@@ -50,6 +52,8 @@ export class MainListComponent implements OnInit {
         })
         this.dataSource = this.tableSource
       });
+      const ids = data.map(a => a.id);
+      this.homeS.emitIds(ids);
     })
   }
   ngOnInit(): void {

@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { AffiliatesService } from './affiliates/affiliates.service';
 import { AppointmentsService } from './appointments/appointments.service';
 import { TestsService } from './tests/tests.service';
+import { IService } from '../base/service-interface';
+import { Affiliate } from '../models/affiliate.model';
+import { Test } from '../models/test.model';
+import { Appointment } from '../models/appointment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +19,17 @@ export class ManagerService {
   ) { }
 
   delete(context: string, id: number) {
-    return this.mapToService(context)?.delete(id)
+    return this.mapToService(context).delete(id)
   }
 
-  mapToService(context: string) {
+  save(context: string, data: Affiliate | Test | Appointment) {
+    return this.mapToService(context).save(data)
+  }
+  update(context: string, data: Affiliate | Test | Appointment, id: number) {
+    return this.mapToService(context).update(data, id);
+  }
+
+  mapToService(context: string): IService<Affiliate | Test | Appointment> {
     switch (context) {
       case 'affiliates':
         return this.affiliates;
@@ -30,7 +41,7 @@ export class ManagerService {
         return this.appointments;
 
       default:
-        return null;
+        throw new Error('No service found');
     }
   }
 }

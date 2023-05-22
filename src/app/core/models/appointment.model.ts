@@ -1,7 +1,5 @@
-export interface Appointment {
+import { CrudAppointment } from "./crud-appointment.model";
+
+export interface Appointment extends CrudAppointment {
     id: number;
-    dateAppointment: string;
-    hourAppointment: string;
-    idTest: number;
-    idAffiliate: number;
 }

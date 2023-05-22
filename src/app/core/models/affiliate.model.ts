@@ -1,6 +1,5 @@
-export interface Affiliate {
+import { CrudAffiliate } from "./crud-affiliate.model";
+
+export interface Affiliate extends CrudAffiliate {
     id: number;
-    name: string;
-    mail: string;
-    age: number;
 }

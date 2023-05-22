@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Affiliate } from '../../models/affiliate.model';
+import { CrudAffiliate } from '../../models/crud-affiliate.model';
+import { IService } from '../../base/service-interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AffiliatesService {
+export class AffiliatesService implements IService<Affiliate> {
 
   private affUrl = "/api/controller/affiliates";
   constructor(private http: HttpClient) { }
@@ -18,11 +20,11 @@ export class AffiliatesService {
     return this.http.get<Affiliate>(`${this.affUrl}/${id}`)
   }
 
-  save(newAff: {name: string, age: number, mail: string}) {
-    return this.http.post<Affiliate>(this.affUrl, newAff);
+  save(newReg: CrudAffiliate) {
+    return this.http.post<Affiliate>(this.affUrl, newReg);
   }
 
-  update(existing: {name?: string, age?: number, mail?: string}, id: number) {
+  update(existing: CrudAffiliate, id: number) {
     return this.http.put<Affiliate>(`${this.affUrl}?affiliateId=${id}`, existing)
   }
 

@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Appointment } from '../../models/appointment.model';
+import { IService } from '../../base/service-interface';
+import { CrudAppointment } from '../../models/crud-appointment.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentsService {
+export class AppointmentsService implements IService<Appointment> {
 
   private appUrl = "/api/controller/appointments";
   constructor(private http: HttpClient) { }
@@ -22,16 +24,16 @@ export class AppointmentsService {
     return this.http.get<Appointment[]>(`${this.appUrl}/aff?idAffiliate=${idAffiliate}`);
   }
 
-  save(newAppointment: {dateAppointment: string, hourAppointment: string, idAffiliate: number, idTest: number}) {
-    return this.http.post<Appointment>(this.appUrl, newAppointment)
+  save(newReg: CrudAppointment) {
+    return this.http.post<Appointment>(this.appUrl, newReg)
   }
 
-  update(existing: {dateAppointment?: string, hourAppointment?: string, idAffiliate?: number, idTest?: number}, id: number) {
+  update(existing: CrudAppointment, id: number) {
     return this.http.put<Appointment>(`${this.appUrl}?appointmentId=${id}`, existing)
   }
 
   delete(id: number) {
-    return this.http.delete<boolean>(`${this.appUrl}/${id}`, {observe: 'response'})
+    return this.http.delete(`${this.appUrl}/${id}`, {observe: 'response'})
   }
 
 }

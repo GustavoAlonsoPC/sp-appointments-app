@@ -1,11 +1,13 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Test } from '../../models/test.model';
+import { IService } from '../../base/service-interface';
+import { CrudTest } from '../../models/crud-test.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TestsService {
+export class TestsService implements IService<Test> {
 
   private testUrl = "/api/controller/tests";
   constructor(private http: HttpClient) { }
@@ -18,11 +20,11 @@ export class TestsService {
     return this.http.get<Test>(`${this.testUrl}/${idTest}`);
   }
 
-  save(newTest: {name: string, description: string}) {
-    return this.http.post<Test>(this.testUrl, newTest);
+  save(newReg: CrudTest) {
+    return this.http.post<Test>(this.testUrl, newReg);
   }
 
-  update(existing: {name?: string, description?: string}, id: number) {
+  update(existing: CrudTest, id: number) {
     return this.http.put<Test>(`${this.testUrl}?testId=${id}`, existing)
   }
 

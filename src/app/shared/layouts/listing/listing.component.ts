@@ -9,6 +9,7 @@ import { ConfirmDialogData } from 'src/app/core/models/confirm-dialog-data.model
 import { SuccessDialogData } from 'src/app/core/models/success-dialog-data.model';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DATA_DELETE_CONFIRMATION, DATA_DELETE_ERROR, DATA_DELETE_SUCCESS } from 'src/app/core/utils/dialogs-data';
 
 @Component({
   selector: 'app-listing',
@@ -43,36 +44,12 @@ export class ListingComponent {
         catchError(() => throwError(() => new Error('An error ocurred')))
       )
       .subscribe({next: (r) => {
-        this.dialogService.successDialog(DATA_DELETE_SUCCESS).subscribe(r => {
-          if(r) window.location.reload()
-        }).unsubscribe()
+        this.dialogService.successDialog(DATA_DELETE_SUCCESS).subscribe(s => {
+          if(s) window.location.reload()
+        })
       }, error: (err) => {
-        this.dialogService.errorDialog({
-          title: 'Imposible eliminar',
-          message: 'El registro que quieres eliminar está asociado a varias citas. Elimina esas citas para poder borrar este registro!',
-          acceptText: 'Aceptar',
-          actionText: 'Ir a citas'
-        }).subscribe(r => {if(r) window.location.reload()})
+        this.dialogService.errorDialog(DATA_DELETE_ERROR).subscribe(s => {if(s) window.location.reload()})
       }})
     })
   }
-}
-
-const DATA_DELETE_CONFIRMATION: ConfirmDialogData = {
-  title: 'Confirmar eliminación de registro',
-  message: '¿Estás seguro(a)?',
-  cancelText: 'No estoy seguro(a)',
-  confirmText: "Sí, estoy seguro(a)"
-}
-
-const DATA_DELETE_SUCCESS: SuccessDialogData = {
-  title: '¡Eliminación correcta!',
-  message: 'Se ha eliminado correctamente el registro.',
-  acceptText: 'Aceptar'
-}
-
-const DICTIONARY: {[key: string]: string} = {
-  affiliates: 'afiliados',
-  tests: 'pruebas',
-  appointments: 'citas'
 }

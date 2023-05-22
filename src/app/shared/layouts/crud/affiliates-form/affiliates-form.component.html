@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="example-form" [formGroup]="affiliateForm" (ngSubmit)="onSubmit()">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit('affiliates')">
 
     <mat-form-field class="form-field" *ngIf="register.id !== 0">
       <mat-label>Id de Afiliado</mat-label>
@@ -9,7 +9,7 @@
     <mat-form-field class="form-field">
       <mat-label>Nombre de Afiliado</mat-label>
       <input matInput type="text" formControlName="name">
-      <mat-error *ngIf="affiliateForm.get('name')?.errors?.['required']">
+      <mat-error *ngIf="form.get('name')?.errors?.['required']">
         El nombre es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
@@ -17,10 +17,10 @@
     <mat-form-field class="form-field">
       <mat-label>Edad de Afiliado</mat-label>
       <input matInput type="number" formControlName="age">
-      <mat-error *ngIf="affiliateForm.get('age')?.errors?.['required']">
+      <mat-error *ngIf="form.get('age')?.errors?.['required']">
         La edad es <strong>requerida</strong>
       </mat-error>
-      <mat-error *ngIf="affiliateForm.get('age')?.errors?.['min']">
+      <mat-error *ngIf="form.get('age')?.errors?.['min']">
         La edad no puede ser menor que <strong>0</strong>
       </mat-error>
     </mat-form-field>
@@ -28,16 +28,16 @@
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
       <input type="email" matInput formControlName="mail" placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="affiliateForm.get('mail')?.errors?.['email']">
+      <mat-error *ngIf="form.get('mail')?.errors?.['email']">
         Please enter a valid email address
       </mat-error>
-      <mat-error *ngIf="affiliateForm.get('mail')?.errors?.['required']">
+      <mat-error *ngIf="form.get('mail')?.errors?.['required']">
         Email is <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
     <div class="actions">
-      <button [disabled]="affiliateForm.invalid" mat-raised-button color="primary">Guardar</button>
+      <button [disabled]="form.invalid" mat-raised-button color="primary">Guardar</button>
       <a mat-raised-button color="warn" routerLink="/affiliates">Cancelar</a>
     </div>
   </form>

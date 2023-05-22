@@ -6,17 +6,24 @@ import { ManagerService } from "../services/manager.service";
 import { DialogService } from "../services/dialog.service";
 import { Router } from "@angular/router";
 import { DATA_SAVE_CONFIRMATION, DATA_SAVE_ERROR, DATA_SAVE_SUCCESS, DATA_UPDATE_CONFIRMATION, DATA_UPDATE_ERROR, DATA_UPDATE_SUCCESS } from "../utils/dialogs-data";
+import { Injector } from "@angular/core";
 
 export abstract class AbstractCrudForm {
-  register!: Test | Affiliate | Appointment;
 
+  protected service: ManagerService;
+  protected dialog: DialogService;
+  protected router: Router;
+
+  register!: Test | Affiliate | Appointment;
   form!: FormGroup;
 
   constructor(
-    private service: ManagerService,
-    private dialog: DialogService,
-    private router: Router
-  ) {}
+    private injector: Injector
+  ) {
+    this.service = this.injector.get(ManagerService);
+    this.dialog = this.injector.get(DialogService);
+    this.router = this.injector.get(Router);
+  }
 
   abstract initForm(): FormGroup;
 

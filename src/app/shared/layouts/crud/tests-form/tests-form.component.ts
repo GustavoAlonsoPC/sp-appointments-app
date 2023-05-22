@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Injector, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TestsService } from 'src/app/core/services/tests/tests.service';
 import { Test } from 'src/app/core/models/test.model';
@@ -24,10 +24,9 @@ export class TestsFormComponent extends AbstractCrudForm implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private s: ManagerService,
-    d: DialogService
+    private i: Injector
     ) {
-    super(s, d, new Router());
+    super(i);
   }
   ngOnInit(): void {
     this.form = this.initForm();

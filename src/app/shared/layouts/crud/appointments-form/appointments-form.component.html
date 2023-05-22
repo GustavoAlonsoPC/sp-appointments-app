@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="example-form" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit('appointments')">
 
     <mat-form-field class="form-field" *ngIf="register.id !== 0">
       <mat-label>Id de la prueba</mat-label>
@@ -10,7 +10,7 @@
       <mat-label>Fecha de la Prueba</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="dateAppointment">
       <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-error *ngIf="appointmentForm.get('dateAppointment')?.errors">
+      <mat-error *ngIf="form.get('dateAppointment')?.errors">
         El campo de la fecha es <strong>requerido</strong>
       </mat-error>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -21,7 +21,7 @@
       <mat-label>Hora de la Prueba</mat-label>
       <input matInput type="time" formControlName="hourAppointment">
       <mat-hint>Ingresa una hora</mat-hint>
-      <mat-error *ngIf="appointmentForm.get('hourAppointment')?.errors">
+      <mat-error *ngIf="form.get('hourAppointment')?.errors">
         El campo de la hora es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
@@ -33,7 +33,7 @@
         <mat-option *ngFor="let id of affiliatesIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
       <mat-hint>Seleciona un Id</mat-hint>
-      <mat-error *ngIf="appointmentForm.get('idAffiliate')?.errors">
+      <mat-error *ngIf="form.get('idAffiliate')?.errors">
         El id debe ser <strong>valido</strong>
       </mat-error>
     </mat-form-field>
@@ -45,13 +45,13 @@
         <mat-option *ngFor="let id of testIdList" value="{{id}}">{{id}}</mat-option>
       </mat-select>
       <mat-hint>Seleciona un Id</mat-hint>
-      <mat-error *ngIf="appointmentForm.get('idTest')?.errors">
+      <mat-error *ngIf="form.get('idTest')?.errors">
         El id debe ser <strong>valido</strong>
       </mat-error>
     </mat-form-field>
 
     <div class="actions">
-      <button type="submit" [disabled]="appointmentForm.invalid" mat-raised-button color="primary">Guardar</button>
+      <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Guardar</button>
       <a mat-raised-button color="warn" routerLink="/appointments">Cancelar</a>
     </div>
   </form>

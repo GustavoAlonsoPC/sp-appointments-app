@@ -1,65 +1,63 @@
 import { formatDate } from '@angular/common';
-import { Component, LOCALE_ID, Inject, OnInit, Input } from '@angular/core';
+import { Component, LOCALE_ID, Inject, OnInit, Input, Injector } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AffiliatesService } from 'src/app/core/services/affiliates/affiliates.service';
 import { AppointmentsService } from 'src/app/core/services/appointments/appointments.service';
 import { TestsService } from 'src/app/core/services/tests/tests.service';
 import { Appointment } from 'src/app/core/models/appointment.model';
 import * as moment from 'moment';
+import { AbstractCrudForm } from 'src/app/core/base/abstract-crud-form';
 
 @Component({
   selector: 'app-appointments-form',
   templateUrl: './appointments-form.component.html',
   styleUrls: ['./appointments-form.component.css']
 })
-export class AppointmentsFormComponent implements OnInit {
-
-  appointmentForm!: FormGroup;
+export class AppointmentsFormComponent extends AbstractCrudForm implements OnInit {
   
   affiliatesIdList: number[] = [];
   testIdList: number[] = [];
 
-  @Input() register: Appointment = {
+  @Input() data: Appointment = {
     id: 0, dateAppointment: (new Date()).toJSON(), hourAppointment: '',
     idAffiliate: 0, idTest: 0
   }
 
   constructor(
-    private affiliates: AffiliatesService, 
-    private tests: TestsService,
     private fb: FormBuilder,
-    private service: AppointmentsService,
+    private i: Injector,
     @Inject(LOCALE_ID) private locale: string
   ) {
-      this.affiliates.getAll().subscribe(affs => {
+    super(i);
+      this.service.getAll('affiliates').subscribe(affs => {
         affs.forEach(a => this.affiliatesIdList.push(a.id))
       })
 
-      this.tests.getAll().subscribe(ts => {
+      this.service.getAll('tests').subscribe(ts => {
         ts.forEach(t => this.testIdList.push(t.id))
       })
   }
   
   ngOnInit(): void {
-    this.appointmentForm = this.initForm();
+    this.form = this.initForm();
+    this.register = <Appointment> this.data
   }
 
   initForm(): FormGroup {
     return this.fb.group({
-      dateAppointment: new FormControl(moment(this.register.dateAppointment, 'DD/MM/YYYY'), [Validators.required]),
-      hourAppointment: new FormControl(this.register.hourAppointment, [Validators.required]),
-      idAffiliate: new FormControl(this.register.idAffiliate.toString(), [Validators.required, Validators.min(1)]),
-      idTest: new FormControl(this.register.idTest.toString(), [Validators.required, Validators.min(1)])
+      dateAppointment: new FormControl(moment(this.data.dateAppointment, 'DD/MM/YYYY'), [Validators.required]),
+      hourAppointment: new FormControl(this.data.hourAppointment, [Validators.required]),
+      idAffiliate: new FormControl(this.data.idAffiliate.toString(), [Validators.required, Validators.min(1)]),
+      idTest: new FormControl(this.data.idTest.toString(), [Validators.required, Validators.min(1)])
     })
   }
 
-  onSubmit() {
-    this.appointmentForm.get('dateAppointment')?.setValue(this.getDate())
-    if (this.register.id === 0) this.service.save(this.appointmentForm.value).subscribe(r => console.log(r))
-    else this.service.update(this.appointmentForm.value, this.register.id).subscribe(r => console.log(r))
+  override onSubmit(context: string): void {
+    this.form.get('dateAppointment')?.setValue(this.getDate());
+    super.onSubmit(context);
   }
 
   getDate() {
-    return formatDate(this.appointmentForm.get('dateAppointment')?.value, 'dd/MM/yyyy', this.locale)
+    return formatDate(this.form.get('dateAppointment')?.value, 'dd/MM/yyyy', this.locale)
   }
 }

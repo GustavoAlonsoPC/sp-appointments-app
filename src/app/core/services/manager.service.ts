@@ -28,6 +28,9 @@ export class ManagerService {
   update(context: string, data: Affiliate | Test | Appointment, id: number) {
     return this.mapToService(context).update(data, id);
   }
+  getAll(context: string) {
+    return this.mapToService(context).getAll()
+  }
 
   mapToService(context: string): IService<Affiliate | Test | Appointment> {
     switch (context) {

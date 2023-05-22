@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="example-form" [formGroup]="testForm" (ngSubmit)="onSubmit()">
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <mat-form-field class="form-field" *ngIf="register.id !== 0">
       <mat-label>Id de la prueba</mat-label>
@@ -9,7 +9,7 @@
     <mat-form-field class="form-field">
       <mat-label>Nombre de la Prueba</mat-label>
       <input matInput type="text" formControlName="name" required>
-      <mat-error *ngIf="testForm.get('name')?.touched && testForm.get('name')?.errors?.['required']">
+      <mat-error *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']">
         El nombre de la prueba es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
@@ -17,13 +17,13 @@
     <mat-form-field class="form-field">
       <mat-label>Descripción de la prueba</mat-label>
       <input matInput type="text" formControlName="description" required>
-      <mat-error *ngIf="testForm.get('description')?.touched && testForm.get('description')?.errors?.['required']">
+      <mat-error *ngIf="form.get('description')?.touched && form.get('description')?.errors?.['required']">
         La descripción de la prueba es <strong>requerido</strong>
       </mat-error>
     </mat-form-field>
 
     <div class="actions">
-      <button type="submit" [disabled]="testForm.invalid" mat-raised-button color="primary">Guardar</button>
+      <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Guardar</button>
       <a mat-raised-button color="warn" routerLink="/tests">Cancelar</a>
     </div>
   </form>

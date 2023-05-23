@@ -15,9 +15,13 @@ export class HomeService {
 
   private idSub = new BehaviorSubject<number[]>([]);
   private idSubFilter = new BehaviorSubject<number[]>([]);
+  private dateSubFilter = new BehaviorSubject<string>('');
+  private affIdSubFilter = new BehaviorSubject<number>(0);
 
   ids$ = this.idSub.asObservable();
   idsFilter$ = this.idSubFilter.asObservable();
+  dateFilter$ = this.dateSubFilter.asObservable();
+  idAffFilter$ = this.affIdSubFilter.asObservable();
 
   constructor(private appointments: AppointmentsService) { }
 
@@ -32,6 +36,11 @@ export class HomeService {
       if(!data) return this.idSubFilter.next([]);
       idxs = data.map(a => a.idAffiliate)
       this.idSubFilter.next(idxs)
+      this.dateSubFilter.next(date)
     })
+  }
+
+  emitFilterIdAff(id: number) {
+    this.affIdSubFilter.next(id);
   }
 }

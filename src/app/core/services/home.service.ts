@@ -14,10 +14,24 @@ import { CustomAppointmentsDetails } from 'src/app/core/models/custom-appointmen
 export class HomeService {
 
   private idSub = new BehaviorSubject<number[]>([]);
+  private idSubFilter = new BehaviorSubject<number[]>([]);
+
   ids$ = this.idSub.asObservable();
+  idsFilter$ = this.idSubFilter.asObservable();
+
+  constructor(private appointments: AppointmentsService) { }
 
   emitIds(ids: number[]) {
     this.idSub.next(ids);
   }
-  constructor() { }
+
+  emitIdsFilterDate(date: string) {
+    let idxs: number[] = []
+
+    this.appointments.getByDate(date).subscribe(data => {
+      if(!data) return this.idSubFilter.next([]);
+      idxs = data.map(a => a.idAffiliate)
+      this.idSubFilter.next(idxs)
+    })
+  }
 }

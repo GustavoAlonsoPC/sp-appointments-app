@@ -1,32 +1,30 @@
-<form [formGroup]="filterForm">
-  <div class="container">
-    <div class="row">
-      <div class="filter col-4">
-        <mat-form-field appearance="fill">
-          <mat-label>Escoja una fecha</mat-label>
-          <input matInput [matDatepicker]="picker" 
-            formControlName="date">
-          <mat-hint>DD/MM/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
-          <mat-icon>search</mat-icon>
-        </button>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="filter col-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Escoja una fecha</mat-label>
+        <input matInput [matDatepicker]="picker" 
+          [formControl]="date">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button (click)="filterByDate()" mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
 
-      <div class="filter col-4">
-        <mat-form-field appearance="fill">
-          <mat-label>Id Afiliado</mat-label>
-          <mat-select formControlName="idAff">
-            <mat-option value="">Seleccione un id</mat-option>
-            <mat-option *ngFor="let id of ids" value="{{id}}">{{id}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
-          <mat-icon>search</mat-icon>
-        </button>
-      </div>
+    <div class="filter col-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Id Afiliado</mat-label>
+        <mat-select [formControl]="idAff">
+          <mat-option value="">Seleccione un id</mat-option>
+          <mat-option *ngFor="let id of ids" value="{{id}}">{{id}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="search date">
+        <mat-icon>search</mat-icon>
+      </button>
     </div>
   </div>
-</form>
+</div>

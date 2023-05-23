@@ -20,10 +20,6 @@ export class AppointmentsService implements IService<Appointment> {
     return this.http.get<Appointment>(`${this.appUrl}/${id}`);
   }
 
-  getByAffiliateId(idAffiliate: number) {
-    return this.http.get<Appointment[]>(`${this.appUrl}/aff?idAffiliate=${idAffiliate}`);
-  }
-
   save(newReg: CrudAppointment) {
     return this.http.post<Appointment>(this.appUrl, newReg)
   }
@@ -34,6 +30,14 @@ export class AppointmentsService implements IService<Appointment> {
 
   delete(id: number) {
     return this.http.delete(`${this.appUrl}/${id}`, {observe: 'response'})
+  }
+
+  getByAffiliateId(idAffiliate: number) {
+    return this.http.get<Appointment[]>(`${this.appUrl}/aff?idAffiliate=${idAffiliate}`);
+  }
+
+  getByDate(date: string) {
+    return this.http.get<Appointment[]>(`${this.appUrl}/date?dateAppointment=${date}`);
   }
 
 }

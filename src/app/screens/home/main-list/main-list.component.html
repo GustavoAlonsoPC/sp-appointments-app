@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<mat-card *ngIf="dataSource">
+			<mat-card *ngIf="dataSource && dataSource.length > 0">
 				<mat-card-content>
 					<div class="p-2 table-responsive">
 
@@ -50,7 +50,7 @@
 				[pathRightAction]="'/appointments'"
 				[labelLeftAction]="'Ir a afiliados'"
 				[labelRightAction]="'Ir a citas'"
-				*ngIf="!dataSource"></app-no-content-card>
+				*ngIf="!dataSource || dataSource.length === 0"></app-no-content-card>
 		</div>
 	</div>
 </div>

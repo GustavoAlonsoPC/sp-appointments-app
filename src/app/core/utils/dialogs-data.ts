@@ -60,6 +60,12 @@ const DATA_UPDATE_ERROR: ErrorDialogData = {
   acceptText: 'Aceptar'
 }
 
+const DATA_FILTERS_ERROR: ErrorDialogData = {
+  title: 'Sin Filtro',
+  message: 'Está intentando filtrar por un campo vacío, seleccione un filtro válido',
+  acceptText: 'Aceptar'
+}
+
 export {
   DATA_DELETE_SUCCESS, 
   DATA_DELETE_CONFIRMATION, 
@@ -69,5 +75,6 @@ export {
   DATA_SAVE_ERROR,
   DATA_UPDATE_CONFIRMATION,
   DATA_UPDATE_ERROR,
-  DATA_UPDATE_SUCCESS
+  DATA_UPDATE_SUCCESS,
+  DATA_FILTERS_ERROR
 }

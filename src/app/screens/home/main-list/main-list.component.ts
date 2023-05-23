@@ -25,6 +25,7 @@ export class MainListComponent implements OnInit {
   expandedElement!: HomeDataSource | null;
 
   tableSource: HomeDataSource[] = [];
+  filteredSource: HomeDataSource[] = [];
 
   columnHeaders: { [key: string]: string } = {
     id: 'Id',
@@ -50,7 +51,7 @@ export class MainListComponent implements OnInit {
           age: aff.age,
           nestedData: []
         })
-        this.dataSource = this.tableSource
+        this.dataSource = this.tableSource.slice(0)
       });
       const ids = data.map(a => a.id);
       this.homeS.emitIds(ids);
@@ -59,6 +60,20 @@ export class MainListComponent implements OnInit {
   ngOnInit(): void {
     this.tests.getAll().subscribe(all => {
       all.forEach(t => this.testsNames[t.id] = t.name)
+    })
+
+    this.homeS.idsFilter$.subscribe(r => {
+      console.log('from main list r', r)
+      //if(!r || r.length === 0) return;
+      this.filteredSource = this.tableSource.filter(hds => r.includes(hds.id))
+      console.log('Filtered source', this.filteredSource)
+      this.dataSource = this.filteredSource.slice(0)
+    })
+
+    this.homeS.idAffFilter$.subscribe(n => {
+      if(!n || n === 0) return;
+      this.filteredSource = this.tableSource.filter(hds => hds.id === n)
+      if(this.filteredSource.length !== 0) this.dataSource = this.filteredSource.slice(0)
     })
   }
 
@@ -79,6 +94,13 @@ export class MainListComponent implements OnInit {
               testName: this.testsNames[a.idTest]
             })
           })
+
+          if(this.filteredSource.length > 0) {
+            this.homeS.dateFilter$.subscribe(d => {
+              if(d === '') return
+              aff.nestedData = aff.nestedData.filter(a => a.dateAppointment === d)
+            })
+          }
         })
       })
   }

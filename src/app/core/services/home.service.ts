@@ -31,13 +31,18 @@ export class HomeService {
 
   emitIdsFilterDate(date: string) {
     let idxs: number[] = []
-
-    this.appointments.getByDate(date).subscribe(data => {
-      if(!data) return this.idSubFilter.next([]);
-      idxs = data.map(a => a.idAffiliate)
-      this.idSubFilter.next(idxs)
-      this.dateSubFilter.next(date)
-    })
+    if(date !== '') {
+      this.appointments.getByDate(date).subscribe(data => {
+        if(!data) return this.idSubFilter.next([]);
+        idxs = data.map(a => a.idAffiliate)
+        this.idSubFilter.next(idxs)
+        this.dateSubFilter.next(date)
+      })
+    } else {
+      this.idSubFilter.next([])
+      this.dateSubFilter.next('')
+    }
+    
   }
 
   emitFilterIdAff(id: number) {

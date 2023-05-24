@@ -28,23 +28,15 @@ export class FiltersComponent implements OnInit {
 
   filterByDate() {
     let d = this.getDate()
-    console.log(d)
-    if(d === 'N/A') {
-      this.dialog.errorDialog(DATA_FILTERS_ERROR).subscribe(r => {if(r) window.location.reload()})
-    } else this.homeS.emitIdsFilterDate(d)
+    if(d === 'N/A') this.dialog.errorDialog(DATA_FILTERS_ERROR).subscribe(r => {if(r) window.location.reload()})
+    else this.homeS.emitDataByFilterDate(d)
     
   }
 
   filterByIdAff() {
-    if(!this.idAff.value) {
-      this.homeS.emitFilterIdAff(0)
-      this.dialog.errorDialog(DATA_FILTERS_ERROR).subscribe(r => {if(r) window.location.reload()})
-    }
-    else {
     let id = Number(this.idAff.value)
-    this.homeS.emitIdsFilterDate('')
-    this.homeS.emitFilterIdAff(id)
-    }
+    if(id !== 0) this.homeS.emitDataByFilterId(id)
+    else this.dialog.errorDialog(DATA_FILTERS_ERROR).subscribe(r => {if(r) window.location.reload()})
   }
 
   getDate() {
